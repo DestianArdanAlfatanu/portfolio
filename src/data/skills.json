@@ -1,0 +1,32 @@
+[
+  {
+    "category": "Frontend",
+    "items": [
+      { "name": "React", "level": "Advanced" },
+      { "name": "TypeScript", "level": "Advanced" },
+      { "name": "JavaScript", "level": "Advanced" },
+      { "name": "Tailwind CSS", "level": "Advanced" },
+      { "name": "HTML/CSS", "level": "Advanced" },
+      { "name": "Next.js", "level": "Intermediate" }
+    ]
+  },
+  {
+    "category": "Backend",
+    "items": [
+      { "name": "Laravel", "level": "Intermediate" },
+      { "name": "Node.js", "level": "Beginner" },
+      { "name": "PostgreSQL", "level": "Intermediate" },
+      { "name": "MySQL", "level": "Intermediate" }
+    ]
+  },
+  {
+    "category": "Tools & Others",
+    "items": [
+      { "name": "Git", "level": "Advanced" },
+      { "name": "Vite", "level": "Advanced" },
+      { "name": "Figma", "level": "Intermediate" },
+      { "name": "VS Code", "level": "Advanced" },
+      { "name": "Vercel", "level": "Advanced" }
+    ]
+  }
+]

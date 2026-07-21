@@ -1,0 +1,111 @@
+[
+{
+  "id": 1,
+  "slug": "smartani",
+  "title": "Smartani",
+  "organization": "Personal Project",
+  "type": "Personal Project",
+  "teamSize": 1,
+  "duration": "2 Months",
+  "description": "Modern landing page for a smart agriculture platform designed to showcase digital farming solutions through a responsive and engaging user experience.",
+  "longDescription": "Smartani is a modern landing page developed to introduce a digital agriculture platform through a clean and responsive interface. The website focuses on presenting the platform's vision, services, and features while maintaining excellent usability across desktop and mobile devices.\n\nThe application was built using React and Tailwind CSS with a component-based architecture, emphasizing reusable components, maintainable code, and smooth user interactions.",
+  "thumbnail": "/public/smartani.cloud.png",
+  "techStack": [
+    "React",
+    "JavaScript",
+    "Tailwind CSS"
+  ],
+  "category": "Web Application",
+  "status": "Completed",
+  "github": [
+    {
+      "label": "Repository",
+      "url": "https://github.com/DestianArdanAlfatanu/Smartani"
+    }
+  ],
+  "liveDemo": "https://smartani.cloud",
+  "featured": true,
+  "year": 2024,
+  "role": "Front-end Developer",
+  "problem": "The platform required a modern and responsive website to effectively communicate its products, services, and vision while providing a professional first impression to potential users.",
+  "solution": "Developed a responsive landing page using React and Tailwind CSS with reusable components, modern layouts, and optimized user experience to deliver clear information and intuitive navigation.",
+  "responsibilities": [
+    "UI Implementation",
+    "Responsive Web Development",
+    "Component Development",
+    "Landing Page Development",
+    "Performance Optimization"
+  ],
+  "features": [
+    "Responsive Layout",
+    "Interactive Hero Section",
+    "About Section",
+    "Feature Showcase",
+    "FAQ Section",
+    "Contact Section",
+    "Smooth Navigation"
+  ],
+  "challenges": [
+    "Maintaining consistent layouts and visual hierarchy across multiple screen sizes while ensuring optimal performance."
+  ],
+  "lessonsLearned": [
+    "Improved responsive web development techniques.",
+    "Strengthened understanding of reusable React component architecture.",
+    "Enhanced skills in building maintainable user interfaces with Tailwind CSS.",
+    "Learned to create modern landing pages focused on user experience and performance."
+  ],
+  "screenshots": [
+    "/public/preview-smartani.png"
+  ],
+  "relatedProjects": [
+    2,
+    3
+  ]
+},
+{
+    "id": 2,
+    "slug": "project-two",
+    "title": "Project Two",
+    "description": "Short description for card display.",
+    "longDescription": "Extended description for detail page.",
+    "thumbnail": "/images/projects/project-two.webp",
+    "techStack": ["React", "TypeScript", "Tailwind CSS"],
+    "category": "Web Application",
+    "status": "Completed",
+    "github": "https://github.com/username/project",
+    "liveDemo": "https://project.vercel.app",
+    "featured": true,
+    "year": 2024,
+    "role": "Front-end Developer",
+    "problem": "Describe the problem this project solved.",
+    "solution": "Describe the solution approach.",
+    "features": ["Feature 1", "Feature 2", "Feature 3"],
+    "challenges": ["Challenge 1"],
+    "lessonsLearned": ["Lesson 1"],
+    "screenshots": ["/images/projects/project-two-1.webp"],
+    "relatedProjects": [1, 3]
+  },
+  {
+    "id": 3,
+    "slug": "project-three",
+    "title": "Project Three",
+    "description": "Short description for card display.",
+    "longDescription": "Extended description for detail page.",
+    "thumbnail": "/images/projects/project-three.webp",
+    "techStack": ["React", "TypeScript", "Tailwind CSS"],
+    "category": "Web Application",
+    "status": "Completed",
+    "github": "https://github.com/username/project",
+    "liveDemo": "https://project.vercel.app",
+    "featured": true,
+    "year": 2024,
+    "role": "Front-end Developer",
+    "problem": "Describe the problem this project solved.",
+    "solution": "Describe the solution approach.",
+    "features": ["Feature 1", "Feature 2", "Feature 3"],
+    "challenges": ["Challenge 1"],
+    "lessonsLearned": ["Lesson 1"],
+    "screenshots": ["/images/projects/project-three-1.webp"],
+    "relatedProjects": [1, 2]
+  }
+]
