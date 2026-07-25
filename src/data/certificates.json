@@ -1,26 +1,11 @@
 [
   {
     "id": 1,
-    "title": "Certificate Title",
-    "issuer": "Issuing Organization",
-    "date": "2024-01",
-    "credentialUrl": "https://credential.url",
-    "image": "/images/certificates/cert-1.webp"
-  },
-  {
-    "id": 2,
-    "title": "Certificate Title",
-    "issuer": "Issuing Organization",
-    "date": "2024-01",
-    "credentialUrl": "https://credential.url",
-    "image": "/images/certificates/cert-1.webp"
-  },
-  {
-    "id": 3,
-    "title": "Certificate Title",
-    "issuer": "Issuing Organization",
-    "date": "2024-01",
-    "credentialUrl": "https://credential.url",
-    "image": "/images/certificates/cert-1.webp"
+    "title": "Soedirman Test of English Proficiency",
+    "issuer": "Universitas Jenderal Soedirman",
+    "date": "2026-05",
+    "credentialUrl": "/public/step.pdf",
+    "image": "/public/logounsoed.png",
+    "description": "Score: 355/450"
   }
 ]

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Github, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { TechBadge } from '@/components/ui/TechBadge';
+import { CategoryBadge } from '@/components/ui/CategoryBadge';
 
 export const ProjectCard = memo(({ project }) => {
   const { id, slug, title, description, thumbnail, techStack, status, role, github, liveDemo, year } = project;
@@ -33,6 +34,14 @@ export const ProjectCard = memo(({ project }) => {
             </span>
           )}
         </div>
+
+        {project.category && (Array.isArray(project.category) ? project.category : [project.category]).length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {(Array.isArray(project.category) ? project.category : [project.category]).map(cat => (
+              <CategoryBadge key={cat} name={cat} variant="outline" size="sm" />
+            ))}
+          </div>
+        )}
         
         <Link to={`/projects/${slug}`} className="block">
           <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent-indigo transition-colors line-clamp-1">
@@ -58,13 +67,14 @@ export const ProjectCard = memo(({ project }) => {
         <div className="flex items-center justify-between pt-3 mt-auto border-t border-border-subtle/50">
           <span className="text-text-muted text-sm">{role}</span>
           <div className="flex items-center gap-2">
-            {github && (
+            {github && github.length > 0 && github[0]?.url && github[0].url !== 'TODO' && (
               <a 
-                href={github} 
+                href={github[0].url} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-1.5 rounded-md text-text-muted hover:text-text-primary hover:bg-bg-primary transition-colors"
                 aria-label="GitHub Repository"
+                onClick={(e) => e.stopPropagation()}
               >
                 <Github className="w-4 h-4" />
               </a>

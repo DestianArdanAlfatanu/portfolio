@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router';
-import { ArrowLeft, Calendar, User, Circle, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Users, Clock, Building2, Circle, ExternalLink, Github } from 'lucide-react';
 import { getProjectBySlug, getProjects } from '@/data/dataService';
 import TechBadge from '@/components/ui/TechBadge';
+import CategoryBadge from '@/components/ui/CategoryBadge';
 import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
 import AnimatedContainer from '@/components/ui/AnimatedContainer';
@@ -40,10 +41,17 @@ export default function ProjectDetail() {
       <div className="py-24 flex flex-col items-center justify-center min-h-[50vh]">
         <h2 className="text-2xl font-bold text-text-primary mb-4">Project Not Found</h2>
         <p className="text-text-secondary mb-8">The project you are looking for does not exist.</p>
-        <Button to="/projects" variant="primary" icon={ArrowLeft}>Back to Projects</Button>
+        <Button href="/projects" variant="primary" icon={ArrowLeft}>Back to Projects</Button>
       </div>
     );
   }
+
+  const isTodo = (val) => val === 'TODO' || (Array.isArray(val) && val.length === 1 && val[0] === 'TODO');
+  const statusColor = {
+    'Completed': 'text-green-500 fill-green-500',
+    'In Progress': 'text-yellow-500 fill-yellow-500',
+    'Archived': 'text-zinc-500 fill-zinc-500',
+  };
 
   return (
     <article className="pb-24 pt-12">
@@ -54,24 +62,36 @@ export default function ProjectDetail() {
             <span>Back to Projects</span>
           </Link>
 
+          {/* Header */}
           <div className="py-12 border-b border-border-subtle">
-            {project.category && (
-              <div className="text-accent-indigo font-mono text-sm uppercase tracking-wider">
-                {project.category}
+            {project.category && (Array.isArray(project.category) ? project.category : [project.category]).length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {(Array.isArray(project.category) ? project.category : [project.category]).map(cat => (
+                  <CategoryBadge key={cat} name={cat} size="md" />
+                ))}
               </div>
             )}
             <h1 className="text-4xl sm:text-5xl font-bold text-text-primary mt-2">
               {project.title}
             </h1>
-            <p className="text-text-secondary text-lg mt-4 max-w-3xl">
-              {project.description}
-            </p>
+            {!isTodo(project.description) && (
+              <p className="text-text-secondary text-lg mt-4 max-w-3xl">
+                {project.description}
+              </p>
+            )}
 
-            <div className="flex flex-wrap gap-6 mt-6">
+            {/* Meta row */}
+            <div className="flex flex-wrap gap-x-6 gap-y-3 mt-6">
               {project.year && (
                 <div className="flex items-center gap-2 text-text-muted text-sm">
                   <Calendar className="w-4 h-4" />
                   <span>{project.year}</span>
+                </div>
+              )}
+              {project.duration && !isTodo(project.duration) && (
+                <div className="flex items-center gap-2 text-text-muted text-sm">
+                  <Clock className="w-4 h-4" />
+                  <span>{project.duration}</span>
                 </div>
               )}
               {project.role && (
@@ -80,25 +100,43 @@ export default function ProjectDetail() {
                   <span>{project.role}</span>
                 </div>
               )}
-              <div className="flex items-center gap-2 text-text-muted text-sm">
-                <Circle className="w-3 h-3 text-green-500 fill-green-500" />
-                <span>Completed</span>
-              </div>
+              {project.teamSize && (
+                <div className="flex items-center gap-2 text-text-muted text-sm">
+                  <Users className="w-4 h-4" />
+                  <span>{project.teamSize === 1 ? 'Solo' : `${project.teamSize} Members`}</span>
+                </div>
+              )}
+              {project.organization && !isTodo(project.organization) && (
+                <div className="flex items-center gap-2 text-text-muted text-sm">
+                  <Building2 className="w-4 h-4" />
+                  <span>{project.organization}</span>
+                </div>
+              )}
+              {project.status && (
+                <div className="flex items-center gap-2 text-text-muted text-sm">
+                  <Circle className={`w-3 h-3 ${statusColor[project.status] || 'text-zinc-500 fill-zinc-500'}`} />
+                  <span>{project.status}</span>
+                </div>
+              )}
             </div>
 
+            {/* Action buttons */}
             <div className="flex flex-wrap gap-3 mt-8">
               {project.liveDemo && (
                 <Button as="a" href={project.liveDemo} target="_blank" rel="noopener noreferrer" variant="primary" icon={ExternalLink}>
                   Live Demo
                 </Button>
               )}
-              {project.github && (
-                <Button as="a" href={project.github} target="_blank" rel="noopener noreferrer" variant="secondary" icon={Github}>
-                  View Code
-                </Button>
-              )}
+              {project.github && project.github.length > 0 && project.github.map((repo, i) => (
+                repo.url && repo.url !== 'TODO' && (
+                  <Button key={i} as="a" href={repo.url} target="_blank" rel="noopener noreferrer" variant="secondary" icon={Github}>
+                    {repo.label || 'View Code'}
+                  </Button>
+                )
+              ))}
             </div>
 
+            {/* Tech stack */}
             {project.techStack && project.techStack.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-8">
                 {project.techStack.map(tech => (
@@ -108,22 +146,46 @@ export default function ProjectDetail() {
             )}
           </div>
 
+          {/* Content sections */}
           <div className="max-w-3xl py-8">
-            {project.problem && (
+            {project.longDescription && !isTodo(project.longDescription) && (
+              <section className="mt-8">
+                <h2 className="text-2xl font-semibold text-text-primary mb-4">Overview</h2>
+                <div className="text-text-secondary leading-relaxed whitespace-pre-line">
+                  {project.longDescription}
+                </div>
+              </section>
+            )}
+
+            {project.problem && !isTodo(project.problem) && (
               <section className="mt-16">
                 <h2 className="text-2xl font-semibold text-text-primary mb-4">The Problem</h2>
                 <p className="text-text-secondary leading-relaxed">{project.problem}</p>
               </section>
             )}
 
-            {project.solution && (
+            {project.solution && !isTodo(project.solution) && (
               <section className="mt-16">
                 <h2 className="text-2xl font-semibold text-text-primary mb-4">The Solution</h2>
                 <p className="text-text-secondary leading-relaxed">{project.solution}</p>
               </section>
             )}
 
-            {project.features && project.features.length > 0 && (
+            {project.responsibilities && !isTodo(project.responsibilities) && (
+              <section className="mt-16">
+                <h2 className="text-2xl font-semibold text-text-primary mb-4">Responsibilities</h2>
+                <ul className="space-y-2">
+                  {project.responsibilities.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-text-secondary">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-indigo mt-2 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {project.features && !isTodo(project.features) && (
               <section className="mt-16">
                 <h2 className="text-2xl font-semibold text-text-primary mb-4">Key Features</h2>
                 <ul className="space-y-2">
@@ -137,7 +199,7 @@ export default function ProjectDetail() {
               </section>
             )}
 
-            {project.challenges && project.challenges.length > 0 && (
+            {project.challenges && !isTodo(project.challenges) && (
               <section className="mt-16">
                 <h2 className="text-2xl font-semibold text-text-primary mb-4">Challenges</h2>
                 <ul className="space-y-2">
@@ -151,7 +213,7 @@ export default function ProjectDetail() {
               </section>
             )}
 
-            {project.lessonsLearned && project.lessonsLearned.length > 0 && (
+            {project.lessonsLearned && !isTodo(project.lessonsLearned) && (
               <section className="mt-16">
                 <h2 className="text-2xl font-semibold text-text-primary mb-4">Lessons Learned</h2>
                 <ul className="space-y-2">
@@ -166,19 +228,31 @@ export default function ProjectDetail() {
             )}
           </div>
 
+          {/* Screenshots */}
           {project.screenshots && project.screenshots.length > 0 && (
             <section className="mt-16 pt-16 border-t border-border-subtle">
               <h2 className="text-2xl font-semibold text-text-primary mb-8">Screenshots</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {project.screenshots.map((img, i) => (
-                  <div key={i} className="aspect-video bg-bg-card rounded-xl border border-border-subtle overflow-hidden">
-                    <img src={img} alt={`Screenshot ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                {project.screenshots.map((screenshot, i) => (
+                  <div key={i} className="space-y-2">
+                    <div className="aspect-video bg-bg-card rounded-xl border border-border-subtle overflow-hidden">
+                      <img
+                        src={typeof screenshot === 'string' ? screenshot : screenshot.image}
+                        alt={typeof screenshot === 'string' ? `Screenshot ${i + 1}` : screenshot.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    {typeof screenshot === 'object' && screenshot.title && !isTodo(screenshot.title) && (
+                      <p className="text-text-muted text-sm text-center">{screenshot.title}</p>
+                    )}
                   </div>
                 ))}
               </div>
             </section>
           )}
 
+          {/* Related Projects */}
           {relatedProjects.length > 0 && (
             <section className="mt-24 pt-16 border-t border-border-subtle">
               <SectionTitle title="More Projects" className="mb-8" />

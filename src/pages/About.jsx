@@ -5,34 +5,31 @@ import { Code, Zap, Users } from 'lucide-react';
 
 export default function About() {
   useEffect(() => {
-    document.title = 'About — Your Name';
+    document.title = 'About — Destian Ardan Alfatanu';
   }, []);
 
   return (
     <section className="py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedContainer>
-          <SectionTitle overline="About" title="Get to know me" />
+          <SectionTitle overline="About" title="Professional Profile" />
 
           <div className="mt-12 max-w-3xl space-y-6 text-text-secondary text-lg leading-relaxed">
             <p>
-              Hello! I'm a passionate front-end developer dedicated to building exceptional digital experiences. I focus on crafting clean, accessible, and high-performance user interfaces that solve real-world problems.
-            </p>
+              I am a Computer Science graduate from Universitas Jenderal Soedirman with a strong interest in front-end and full-stack web development. During my internships at PT Kereta Api Indonesia DAOP V Purwokerto and PT Telkom Indonesia, I developed internal business applications that improved administrative workflows and operational efficiency.            </p>
             <p>
-              My journey in web development started with a curiosity about how things work on the internet. Over the years, I've honed my skills in modern JavaScript frameworks, primarily React, and developed a keen eye for design and user experience.
-            </p>
+              My experience ranges from responsive landing pages to enterprise web applications involving authentication, role-based access control, database design, and REST API integration. I enjoy transforming business requirements into scalable, user-friendly digital products.            </p>
             <p>
-              When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good book. I'm always eager to learn and take on new challenges.
-            </p>
+              Currently, I am seeking opportunities as a Front-end or Full-stack Developer where I can continue building impactful products while growing alongside experienced engineering teams.            </p>
           </div>
 
           <div className="bg-bg-card border border-border-subtle rounded-xl p-6 mt-12 max-w-lg">
             <div className="flex justify-between py-3 border-b border-border-subtle">
               <span className="text-text-muted">Location</span>
-              <span className="text-text-primary font-medium">Central Java, Indonesia</span>
+              <span className="text-text-primary font-medium">Purwokerto, Central Java</span>
             </div>
             <div className="flex justify-between py-3 border-b border-border-subtle">
-              <span className="text-text-muted">Focus</span>
+              <span className="text-text-muted">Current Focus</span>
               <span className="text-text-primary font-medium">Front-end Development</span>
             </div>
             <div className="flex justify-between py-3 border-b border-border-subtle">
@@ -50,23 +47,23 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
                 <Code className="w-6 h-6 text-accent-indigo" />
-                <h3 className="font-semibold text-text-primary mt-3">Clean Code</h3>
+                <h3 className="font-semibold text-text-primary mt-3">Bussines-Oriented Development</h3>
                 <p className="text-text-secondary text-sm mt-2">
-                  I write maintainable, modular, and well-documented code that follows industry best practices.
+                  I build applications that solve operational problems, not just beautiful interfaces.
                 </p>
               </div>
               <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
                 <Zap className="w-6 h-6 text-accent-indigo" />
-                <h3 className="font-semibold text-text-primary mt-3">Performance First</h3>
+                <h3 className="font-semibold text-text-primary mt-3">Modern Web Technologies</h3>
                 <p className="text-text-secondary text-sm mt-2">
-                  Fast-loading and responsive applications are a priority. I optimize for speed and efficiency.
+                  Experienced with React, Next.js, Laravel, Tailwind CSS, TypeScript, and REST API integration.
                 </p>
               </div>
               <div className="bg-bg-card border border-border-subtle rounded-xl p-6">
                 <Users className="w-6 h-6 text-accent-indigo" />
-                <h3 className="font-semibold text-text-primary mt-3">User Focused</h3>
+                <h3 className="font-semibold text-text-primary mt-3">Continuous Learning</h3>
                 <p className="text-text-secondary text-sm mt-2">
-                  Everything I build is centered around providing an intuitive and accessible experience for the end-user.
+                  Always exploring modern development practices and improving software engineering skills through real-world projects.
                 </p>
               </div>
             </div>

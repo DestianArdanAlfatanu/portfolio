@@ -69,14 +69,14 @@ export default function Contact() {
             <ContactCard 
               icon={MessageCircle} 
               label="WhatsApp" 
-              value="+628515665935" 
-              href="https://wa.me/08515665935" 
+              value="+6285156615935" 
+              href="https://wa.me/+6285156615935" 
             />
             <ContactCard 
               icon={FileText} 
               label="Resume" 
               value="Download PDF" 
-              href="#" 
+              href="public/cv.pdf" 
             />
           </div>
         </AnimatedContainer>

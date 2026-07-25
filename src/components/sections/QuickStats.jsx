@@ -4,8 +4,8 @@ import { animations } from '@/lib/utils';
 
 export default function QuickStats() {
   const stats = [
-    { value: '15+', label: 'Projects Completed' },
-    { value: '20+', label: 'Technologies Used' },
+    { value: '6+', label: 'Projects Completed' },
+    { value: '10+', label: 'Technologies Used' },
     { value: '4+', label: 'Years Learning' },
     { value: '100%', label: 'Responsive Design' },
   ];

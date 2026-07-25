@@ -12,7 +12,7 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
-    document.title = 'Projects — Your Name';
+    document.title = 'Projects — Destian Ardan Alfatanu';
     const fetchProjects = async () => {
       const data = await getProjects();
       setProjects(data);
@@ -21,13 +21,16 @@ export default function Projects() {
   }, []);
 
   const categories = useMemo(() => {
-    const cats = projects.map(p => p.category);
+    const cats = projects.flatMap(p =>
+      Array.isArray(p.category) ? p.category : p.category ? [p.category] : []
+    );
     return ['All', ...new Set(cats.filter(Boolean))];
   }, [projects]);
 
   const filteredProjects = useMemo(() => {
     return projects.filter(p => {
-      const matchesCategory = activeCategory === 'All' || p.category === activeCategory;
+      const projectCategories = Array.isArray(p.category) ? p.category : p.category ? [p.category] : [];
+      const matchesCategory = activeCategory === 'All' || projectCategories.includes(activeCategory);
       const matchesSearch = p.title?.toLowerCase().includes(searchQuery.toLowerCase()) || 
                             p.description?.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;

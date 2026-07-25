@@ -24,7 +24,7 @@
     "period": "Aug 2025 - Jan 2026",
     "description": "Designed and developed an internal company profile web application with meeting room booking, role-based access, and database integration to support operational activities across divisions.",
     "techStack": ["React", "TypeScript"],
-    "type": "Full-time"
+    "type": "Internship"
   }, 
   {
     "id": 4,
@@ -33,6 +33,6 @@
     "period": "Jul 2024 - Aug 2024",
     "description": "Developed a web-based internship management system using Laravel, Filament, MySQL, and Tailwind CSS to streamline intern data administration across DAOP V Purwokerto.",
     "techStack": ["Laravel", "MySQL"],
-    "type": "Full-time"
+    "type": "Internship"
   }
 ]

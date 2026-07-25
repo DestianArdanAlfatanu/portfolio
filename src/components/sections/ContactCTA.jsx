@@ -23,7 +23,7 @@ export default function ContactCTA() {
             <Button variant="primary" href="/contact" icon={Mail}>
               Contact Me
             </Button>
-            <Button variant="secondary" href="#" icon={FileText}>
+            <Button variant="secondary" href="public/cv.pdf" icon={FileText}>
               View Resume
             </Button>
           </div>
