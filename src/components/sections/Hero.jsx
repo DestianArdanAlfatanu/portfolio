@@ -53,7 +53,7 @@ export default function Hero() {
               <Button variant="primary" size="lg" href="/projects" icon={ArrowRight}>
                 View Projects
               </Button>
-              <Button variant="secondary" size="lg" href="public/cv.pdf" icon={Download}>
+              <Button variant="secondary" size="lg" href="/cv.pdf" icon={Download}>
                 Download Resume
               </Button>
             </motion.div>

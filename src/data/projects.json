@@ -50,11 +50,11 @@
       "MySQL",
       "Tailwind CSS"
     ],
-    "thumbnail": "/public/prm-telkom.site.png",
+    "thumbnail": "/prm-telkom.site.png",
     "screenshots": [
       {
         "title": "Landing Page",
-        "image": "/public/prm-telkom.site.png"
+        "image": "/prm-telkom.site.png"
       }
     ],
     "github": [
@@ -115,11 +115,11 @@
       "PHP",
       "MySQL"
     ],
-    "thumbnail": "/public/kai.png",
+    "thumbnail": "/kai.png",
     "screenshots": [
       {
         "title": "Internship Dashboard",
-        "image": "/public/kai.png"
+        "image": "/kai.png"
       }
     ],
     "github": [
@@ -185,15 +185,15 @@
       "MySQL",
       "Tailwind CSS"
     ],
-    "thumbnail": "/public/sipake.png",
+    "thumbnail": "/sipake.png",
     "screenshots": [
       {
         "title": "Admin Dashboard",
-        "image": "/public/admin-sipake.png"
+        "image": "/admin-sipake.png"
       },
       {
         "title": "Consultation Modul",
-        "image": "/public/konsul-sipake.png"
+        "image": "/konsul-sipake.png"
       }
     ],
     "github": [
@@ -255,11 +255,11 @@
       "JavaScript",
       "Tailwind CSS"
     ],
-    "thumbnail": "/public/smartani.cloud.png",
+    "thumbnail": "/smartani.cloud.png",
     "screenshots": [
       {
         "title": "Landing Page",
-        "image": "/public/preview-smartani.png"
+        "image": "/preview-smartani.png"
       }
     ],
     "github": [
@@ -321,11 +321,11 @@
       "JavaScript",
       "Tailwind CSS"
     ],
-    "thumbnail": "/public/diikatjanji.com.png",
+    "thumbnail": "/diikatjanji.com.png",
     "screenshots": [
       {
         "title": "Landing Page",
-        "image": "/public/diikatjanji-preview.png"
+        "image": "/diikatjanji-preview.png"
       }
     ],
     "github": [
@@ -390,11 +390,11 @@
       "JavaScript",
       "Tailwind CSS"
     ],
-    "thumbnail": "/public/married.png",
+    "thumbnail": "/married.png",
     "screenshots": [
       {
         "title": "Landing Page",
-        "image": "/public/hero.png"
+        "image": "/hero.png"
       }
     ],
     "github": [
@@ -459,11 +459,11 @@
       "JavaScript",
       "Tailwind CSS"
     ],
-    "thumbnail": "/public/kiki.png",
+    "thumbnail": "/kiki.png",
     "screenshots": [
       {
         "title": "Landing Page",
-        "image": "/public/dewi.png"
+        "image": "/dewi.png"
       }
     ],
     "github": [

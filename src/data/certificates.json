@@ -4,8 +4,8 @@
     "title": "Soedirman Test of English Proficiency",
     "issuer": "Universitas Jenderal Soedirman",
     "date": "2026-05",
-    "credentialUrl": "/public/step.pdf",
-    "image": "/public/logounsoed.png",
+    "credentialUrl": "/step.pdf",
+    "image": "/logounsoed.png",
     "description": "Score: 355/450"
   }
 ]
