@@ -1,5 +1,18 @@
 import React, { forwardRef } from 'react';
+import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
+
+// Helper to determine if a URL is an internal route (starts with /)
+// but not an external protocol or file download
+const isInternalRoute = (href) => {
+  if (!href) return false;
+  // External links or file downloads
+  if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return false;
+  // File downloads (e.g., /cv.pdf)
+  if (/\.\w+$/.test(href)) return false;
+  // Internal routes
+  return href.startsWith('/');
+};
 
 export const Button = forwardRef(({
   variant = 'primary',
@@ -43,6 +56,15 @@ export const Button = forwardRef(({
   );
 
   if (href) {
+    // Use React Router Link for internal routes (client-side navigation)
+    if (isInternalRoute(href)) {
+      return (
+        <Link ref={ref} to={disabled ? undefined : href} className={classes} aria-disabled={disabled} {...rest}>
+          {content}
+        </Link>
+      );
+    }
+    // Use regular <a> tag for external links and file downloads
     return (
       <a ref={ref} href={disabled ? undefined : href} className={classes} aria-disabled={disabled} {...rest}>
         {content}
