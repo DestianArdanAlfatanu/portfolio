@@ -16,8 +16,10 @@ export default function ContactCTA() {
             Let's work together
           </h2>
           <p className="text-text-secondary text-lg mt-4 max-w-xl mx-auto">
-            I'm currently available for freelance work and open to new opportunities. 
-            If you have a project that needs some creative attention, let's talk.
+            I'm actively seeking opportunities as a Front-end or Web Developer 
+            where I can contribute, grow, and build impactful digital products. 
+            If you're looking for someone who is eager to learn, committed to quality, 
+            and passionate about modern web development, I'd be happy to connect.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             <Button variant="primary" href="/contact" icon={Mail}>
