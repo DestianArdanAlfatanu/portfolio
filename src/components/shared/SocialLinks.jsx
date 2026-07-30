@@ -31,6 +31,7 @@ const SocialLinks = memo(({ className, size = 'md', direction = 'row', showLabel
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors"
+            aria-label={social.platform}
           >
             <Icon size={iconSize} />
             {showLabels && <span>{social.platform}</span>}

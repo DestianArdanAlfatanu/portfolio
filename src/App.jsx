@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BackToTop from '@/components/layout/BackToTop';
+import ScrollToTop from '@/components/layout/ScrollToTop';
 import CommandPalette from '@/components/shared/CommandPalette';
 
 // Lazy-loaded pages for code splitting
@@ -36,6 +37,7 @@ function PageLoader() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-bg-primary">
         <Navbar />
         <main className="flex-1 pt-16">

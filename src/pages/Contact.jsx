@@ -30,8 +30,8 @@ export default function Contact() {
             description="Feel free to reach out through any of the channels below." 
           />
 
-          <div className="mt-12 bg-bg-card border border-border-subtle rounded-2xl p-8 sm:p-12 text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-text-primary">{email}</h2>
+          <div className="mt-12 bg-bg-card border border-border-subtle rounded-2xl p-4 sm:p-8 md:p-12 text-center max-w-3xl mx-auto">
+            <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-text-primary break-all">{email}</h2>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <Button 
                 onClick={handleCopyEmail} 
@@ -76,7 +76,7 @@ export default function Contact() {
               icon={FileText} 
               label="Resume" 
               value="Download PDF" 
-              href="public/cv.pdf" 
+              href="/cv.pdf" 
             />
           </div>
         </AnimatedContainer>

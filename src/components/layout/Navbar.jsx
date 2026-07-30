@@ -52,6 +52,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-text-secondary hover:text-text-primary p-2"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -83,7 +84,7 @@ export default function Navbar() {
                 );
               })}
               <div className="pt-4 pb-2">
-                <Button variant="primary" size="sm" className="w-full">
+                <Button variant="primary" size="sm" href="/contact" className="w-full">
                   Contact
                 </Button>
               </div>
