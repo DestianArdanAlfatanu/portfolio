@@ -9,7 +9,7 @@ export default function Experience() {
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
-    document.title = 'Experience — Destian Ardan Alfatanu';
+    document.title = 'Experience — Destian Ardan Alfatanu | Full-Stack & Front-End Developer';
     const fetchExp = async () => {
       const data = await getExperience();
       setExperiences(data);

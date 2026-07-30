@@ -6,7 +6,7 @@ import SocialLinks from '@/components/shared/SocialLinks';
 import { animations } from '@/lib/utils';
 
 export default function Hero() {
-  const currentTech = ['React', 'TypeScript', 'Tailwind', 'Laravel', 'Vite'];
+  const currentTech = ['React', 'Next.js', 'TypeScript', 'Laravel', 'Tailwind CSS', 'MySQL'];
 
   return (
     <section className="py-24 sm:py-32 relative">
@@ -31,18 +31,22 @@ export default function Hero() {
             </motion.div>
             
             <motion.div variants={animations.fadeUp}>
-              <p className="text-xl sm:text-2xl text-text-secondary mt-4 leading-relaxed font-normal">
-                Fresh Graduate Informatics | Web Developer | Front-End Developer | 
-                React.js, Next.js, Laravel, TypeScript | Ex-Intern PT Telkom Indonesia & PT KAI | 
-                Building Modern & Responsive Web Applications
+              <p className="text-lg sm:text-xl text-text-secondary mt-4 leading-relaxed font-medium">
+                Fresh Graduate in Informatics specializing in Full-Stack and Front-End Web Development with hands-on experience building scalable web applications using React, Next.js, Laravel, TypeScript, and MySQL.
               </p>
             </motion.div>
 
-            <motion.div variants={animations.fadeUp} className="flex flex-wrap gap-3 mt-8">
+            <motion.div variants={animations.fadeUp}>
+              <p className="text-base text-text-muted mt-4 leading-relaxed max-w-2xl">
+                Experienced in developing responsive user interfaces, internal business applications, and modern web platforms through academic projects, organizational projects, and professional internships at PT Telkom Indonesia and PT Kereta Api Indonesia (Persero). Passionate about writing clean code, building maintainable systems, and continuously learning modern software engineering practices.
+              </p>
+            </motion.div>
+
+            <motion.div variants={animations.fadeUp} className="flex flex-wrap gap-2 mt-8">
               {currentTech.map((tech) => (
                 <span
                   key={tech}
-                  className="text-sm font-mono text-text-muted border border-border-subtle rounded-md px-3 py-1 hover:border-border-hover hover:text-text-secondary transition-colors cursor-default"
+                  className="text-xs font-mono text-text-muted border border-border-subtle rounded-md px-2.5 py-1 hover:border-border-hover hover:text-text-secondary transition-colors cursor-default"
                 >
                   {tech}
                 </span>

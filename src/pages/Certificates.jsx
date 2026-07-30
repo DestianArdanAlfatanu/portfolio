@@ -8,7 +8,7 @@ export default function Certificates() {
   const [certificates, setCertificates] = useState([]);
 
   useEffect(() => {
-    document.title = 'Certificates — Destian Ardan Alfatanu';
+    document.title = 'Certificates — Destian Ardan Alfatanu | Full-Stack & Front-End Developer';
     const fetchCerts = async () => {
       const data = await getCertificates();
       setCertificates(data);

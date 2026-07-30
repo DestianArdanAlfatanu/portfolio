@@ -12,7 +12,7 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
-    document.title = 'Projects — Destian Ardan Alfatanu';
+    document.title = 'Projects — Destian Ardan Alfatanu | Full-Stack & Front-End Developer';
     const fetchProjects = async () => {
       const data = await getProjects();
       setProjects(data);

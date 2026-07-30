@@ -2,14 +2,13 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import AnimatedContainer from '@/components/ui/AnimatedContainer';
-import { animations } from '@/lib/utils';
 
 export default function AboutPreview() {
   const facts = [
     { label: 'Location', value: 'Central Java, Indonesia' },
-    { label: 'Focus', value: 'Front-end Development' },
+    { label: 'Focus', value: 'Full-Stack & Front-End Development' },
     { label: 'Education', value: 'B.S. Computer Science' },
-    { label: 'Languages', value: 'English, Indonesia' },
+    { label: 'Languages', value: 'Indonesian, English' },
   ];
 
   return (
@@ -21,24 +20,17 @@ export default function AboutPreview() {
               About Me
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">
-              Building Interfaces That Users Enjoy
+              Building Scalable Web Applications
             </h2>
             <p className="text-text-secondary text-lg mt-4 leading-relaxed">
-              I'm Destian Ardan Alfatanu, a Front-end Developer and Informatics graduate
-              with a strong interest in building modern, responsive, and user-centered web
-              applications. I enjoy transforming ideas into clean interfaces that combine
-              thoughtful design with solid engineering practices.
+              I am a Fresh Graduate in Informatics from Jenderal Soedirman University specializing in Full-Stack and Front-End Web Development. I enjoy transforming business requirements into intuitive, responsive, and maintainable applications.
             </p>
             <p className="text-text-secondary text-lg mt-4 leading-relaxed">
-              Throughout my academic projects and internship experience, I've worked with
-              React, Vite, Tailwind CSS, Laravel, MySQL, and Flutter to develop solutions
-              ranging from company information systems to digital platforms. I'm constantly
-              exploring new technologies while focusing on writing maintainable code and
-              delivering intuitive user experiences.
+              Throughout my academic projects and professional internships at PT Telkom Indonesia and PT Kereta Api Indonesia, I have developed web applications ranging from internal management systems to digital platforms using React, Next.js, Laravel, TypeScript, and MySQL.
             </p>
             <div className="mt-6">
               <Button variant="ghost" href="/about" icon={ArrowRight}>
-                  More About My Journey
+                More About My Journey
               </Button>
             </div>
           </AnimatedContainer>

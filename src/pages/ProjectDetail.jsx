@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router';
-import { ArrowLeft, Calendar, User, Users, Clock, Building2, Circle, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Users, Clock, Building2, Circle, ExternalLink, Github, Layers, Briefcase } from 'lucide-react';
 import { getProjectBySlug, getProjects } from '@/data/dataService';
 import TechBadge from '@/components/ui/TechBadge';
 import CategoryBadge from '@/components/ui/CategoryBadge';
@@ -53,6 +53,9 @@ export default function ProjectDetail() {
     'Archived': 'text-zinc-500 fill-zinc-500',
   };
 
+  const hasGithub = project.github?.some(repo => repo.url && repo.url !== 'TODO');
+  const hasLiveDemo = Boolean(project.liveDemo);
+
   return (
     <article className="pb-24 pt-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,57 +83,84 @@ export default function ProjectDetail() {
               </p>
             )}
 
-            {/* Meta row */}
-            <div className="flex flex-wrap gap-x-6 gap-y-3 mt-6">
-              {project.year && (
-                <div className="flex items-center gap-2 text-text-muted text-sm">
-                  <Calendar className="w-4 h-4" />
-                  <span>{project.year}</span>
+            {/* Project Metrics Cards */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-8">
+              {project.organization && !isTodo(project.organization) && (
+                <div className="bg-bg-card border border-border-subtle rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-text-muted text-xs mb-1">
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>Organization</span>
+                  </div>
+                  <p className="text-text-primary text-sm font-medium">{project.organization}</p>
+                </div>
+              )}
+              {project.type && (
+                <div className="bg-bg-card border border-border-subtle rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-text-muted text-xs mb-1">
+                    <Briefcase className="w-3.5 h-3.5" />
+                    <span>Project Type</span>
+                  </div>
+                  <p className="text-text-primary text-sm font-medium">{project.type}</p>
                 </div>
               )}
               {project.duration && !isTodo(project.duration) && (
-                <div className="flex items-center gap-2 text-text-muted text-sm">
-                  <Clock className="w-4 h-4" />
-                  <span>{project.duration}</span>
-                </div>
-              )}
-              {project.role && (
-                <div className="flex items-center gap-2 text-text-muted text-sm">
-                  <User className="w-4 h-4" />
-                  <span>{project.role}</span>
+                <div className="bg-bg-card border border-border-subtle rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-text-muted text-xs mb-1">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>Duration</span>
+                  </div>
+                  <p className="text-text-primary text-sm font-medium">{project.duration}</p>
                 </div>
               )}
               {project.teamSize && (
-                <div className="flex items-center gap-2 text-text-muted text-sm">
-                  <Users className="w-4 h-4" />
-                  <span>{project.teamSize === 1 ? 'Solo' : `${project.teamSize} Members`}</span>
+                <div className="bg-bg-card border border-border-subtle rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-text-muted text-xs mb-1">
+                    <Users className="w-3.5 h-3.5" />
+                    <span>Team Size</span>
+                  </div>
+                  <p className="text-text-primary text-sm font-medium">{project.teamSize === 1 ? 'Solo Project' : `${project.teamSize} Members`}</p>
                 </div>
               )}
-              {project.organization && !isTodo(project.organization) && (
-                <div className="flex items-center gap-2 text-text-muted text-sm">
-                  <Building2 className="w-4 h-4" />
-                  <span>{project.organization}</span>
+              {project.role && (
+                <div className="bg-bg-card border border-border-subtle rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-text-muted text-xs mb-1">
+                    <User className="w-3.5 h-3.5" />
+                    <span>Role</span>
+                  </div>
+                  <p className="text-text-primary text-sm font-medium">{project.role}</p>
                 </div>
               )}
               {project.status && (
-                <div className="flex items-center gap-2 text-text-muted text-sm">
-                  <Circle className={`w-3 h-3 ${statusColor[project.status] || 'text-zinc-500 fill-zinc-500'}`} />
-                  <span>{project.status}</span>
+                <div className="bg-bg-card border border-border-subtle rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-text-muted text-xs mb-1">
+                    <Circle className={`w-3 h-3 ${statusColor[project.status] || 'text-zinc-500 fill-zinc-500'}`} />
+                    <span>Status</span>
+                  </div>
+                  <p className="text-text-primary text-sm font-medium">{project.status}</p>
+                </div>
+              )}
+              {project.year && (
+                <div className="bg-bg-card border border-border-subtle rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-text-muted text-xs mb-1">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>Year</span>
+                  </div>
+                  <p className="text-text-primary text-sm font-medium">{project.year}</p>
                 </div>
               )}
             </div>
 
             {/* Action buttons */}
             <div className="flex flex-wrap gap-3 mt-8">
-              {project.liveDemo && (
+              {hasLiveDemo && (
                 <Button as="a" href={project.liveDemo} target="_blank" rel="noopener noreferrer" variant="primary" icon={ExternalLink}>
-                  Live Demo
+                  Visit Website
                 </Button>
               )}
-              {project.github && project.github.length > 0 && project.github.map((repo, i) => (
+              {hasGithub && project.github.map((repo, i) => (
                 repo.url && repo.url !== 'TODO' && (
                   <Button key={i} as="a" href={repo.url} target="_blank" rel="noopener noreferrer" variant="secondary" icon={Github}>
-                    {repo.label || 'View Code'}
+                    {repo.label || 'View Repository'}
                   </Button>
                 )
               ))}
@@ -138,10 +168,13 @@ export default function ProjectDetail() {
 
             {/* Tech stack */}
             {project.techStack && project.techStack.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-8">
-                {project.techStack.map(tech => (
-                  <TechBadge key={tech} name={tech} />
-                ))}
+              <div className="mt-8">
+                <h3 className="text-text-muted text-xs font-mono uppercase tracking-wider mb-3">Technology Stack</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map(tech => (
+                    <TechBadge key={tech} name={tech} />
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -159,14 +192,14 @@ export default function ProjectDetail() {
 
             {project.problem && !isTodo(project.problem) && (
               <section className="mt-16">
-                <h2 className="text-2xl font-semibold text-text-primary mb-4">The Problem</h2>
+                <h2 className="text-2xl font-semibold text-text-primary mb-4">Business Problem</h2>
                 <p className="text-text-secondary leading-relaxed">{project.problem}</p>
               </section>
             )}
 
             {project.solution && !isTodo(project.solution) && (
               <section className="mt-16">
-                <h2 className="text-2xl font-semibold text-text-primary mb-4">The Solution</h2>
+                <h2 className="text-2xl font-semibold text-text-primary mb-4">Solution</h2>
                 <p className="text-text-secondary leading-relaxed">{project.solution}</p>
               </section>
             )}
@@ -201,7 +234,7 @@ export default function ProjectDetail() {
 
             {project.challenges && !isTodo(project.challenges) && (
               <section className="mt-16">
-                <h2 className="text-2xl font-semibold text-text-primary mb-4">Challenges</h2>
+                <h2 className="text-2xl font-semibold text-text-primary mb-4">Technical Challenges</h2>
                 <ul className="space-y-2">
                   {project.challenges.map((challenge, i) => (
                     <li key={i} className="flex items-start gap-3 text-text-secondary">
@@ -228,17 +261,17 @@ export default function ProjectDetail() {
             )}
           </div>
 
-          {/* Screenshots */}
+          {/* Project Gallery */}
           {project.screenshots && project.screenshots.length > 0 && (
             <section className="mt-16 pt-16 border-t border-border-subtle">
-              <h2 className="text-2xl font-semibold text-text-primary mb-8">Screenshots</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <h2 className="text-2xl font-semibold text-text-primary mb-8">Project Gallery</h2>
+              <div className={`grid gap-6 ${project.screenshots.length === 1 ? 'grid-cols-1 max-w-2xl' : 'grid-cols-1 md:grid-cols-2'}`}>
                 {project.screenshots.map((screenshot, i) => (
                   <div key={i} className="space-y-2">
                     <div className="aspect-video bg-bg-card rounded-xl border border-border-subtle overflow-hidden">
                       <img
                         src={typeof screenshot === 'string' ? screenshot : screenshot.image}
-                        alt={typeof screenshot === 'string' ? `Screenshot ${i + 1}` : screenshot.title}
+                        alt={typeof screenshot === 'string' ? `${project.title} screenshot ${i + 1}` : screenshot.title}
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
@@ -255,7 +288,7 @@ export default function ProjectDetail() {
           {/* Related Projects */}
           {relatedProjects.length > 0 && (
             <section className="mt-24 pt-16 border-t border-border-subtle">
-              <SectionTitle title="More Projects" className="mb-8" />
+              <SectionTitle title="Related Projects" className="mb-8" />
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedProjects.map(relProject => (
                   <ProjectCard key={relProject.id} project={relProject} />

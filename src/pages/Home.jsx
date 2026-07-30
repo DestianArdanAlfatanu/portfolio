@@ -11,7 +11,7 @@ import ContactCTA from '@/components/sections/ContactCTA';
 
 export default function Home() {
   useEffect(() => {
-    document.title = 'Destian Ardan Alfatanu — Front-end Developer';
+    document.title = 'Destian Ardan Alfatanu — Full-Stack & Front-End Developer';
   }, []);
 
   return (

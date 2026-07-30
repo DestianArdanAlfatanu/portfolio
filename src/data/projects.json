@@ -10,41 +10,41 @@
     "year": 2025,
     "role": "Full-stack Developer",
     "description": "Internal web application for the Project Resolution Management division featuring company profile, meeting room booking, and role-based administration.",
-    "longDescription": "PRM Telkom is an internal web application developed during my MBKM internship at PT Telkom Indonesia for the Project Resolution Management division. The system was created to support internal operational activities by centralizing company information and simplifying meeting room reservations across divisions.\n\nI independently developed the application as a full-stack web project, including frontend implementation, backend development, authentication, role-based access control, database design, and deployment.",
-    "problem": "The division required an internal application to centralize company profile information and manage meeting room reservations more efficiently than manual processes.",
-    "solution": "Developed a full-stack web application with authentication, role-based authorization, meeting room booking, and administrative management using a relational database architecture.",
+    "longDescription": "PRM Telkom is an internal web application developed during my MBKM internship at PT Telkom Indonesia for the Project Resolution Management division. The system was created to support internal operational activities by centralizing company information and simplifying meeting room reservations across divisions.\n\nI independently designed the system architecture, developed the full-stack application covering frontend implementation, backend development, authentication, role-based access control, database design, and production deployment.",
+    "problem": "The Project Resolution Management division required an internal platform to centralize company information and simplify meeting room reservation processes while maintaining role-based access and administrative control.",
+    "solution": "Designed and developed a web-based internal application that integrates company profile management, authentication, user authorization, and meeting room booking into a single platform using Next.js, PHP, TypeScript, Tailwind CSS, and MySQL.",
     "responsibilities": [
-      "System Analysis",
-      "UI Design",
-      "Frontend Development",
-      "Backend Development",
-      "Database Design",
-      "Authentication",
-      "Role-based Access Control",
-      "Meeting Room Booking Development",
-      "Deployment"
+      "System Analysis and Requirements Gathering",
+      "UI/UX Design and Implementation",
+      "Frontend Development with Next.js and TypeScript",
+      "Backend Development with PHP and MySQL",
+      "Database Schema Design and Optimization",
+      "Authentication and Role-based Access Control",
+      "Meeting Room Booking System Development",
+      "Production Deployment and Maintenance"
     ],
     "features": [
-      "Authentication",
-      "Role-based Access Control",
-      "Company Profile",
-      "Meeting Room Booking",
-      "Dashboard",
-      "User Management",
-      "Room Management"
+      "Secure authentication with session management",
+      "Role-based access control for admin and user roles",
+      "Company profile and information management",
+      "Meeting room reservation with conflict prevention",
+      "Administrative dashboard with data overview",
+      "User management and access control panel",
+      "Room availability and scheduling management"
     ],
     "challenges": [
-      "Implementing synchronized meeting room reservations while maintaining consistent booking data between users and administrators.",
-    "Designing a role-based permission system for multiple user levels."
+      "Implementing synchronized meeting room reservations while preventing booking conflicts and maintaining data consistency between concurrent users.",
+      "Designing a scalable role-based authentication and authorization system that supports multiple user levels with different access permissions.",
+      "Building reusable UI components for internal administration interfaces that maintain consistency across different modules."
     ],
     "lessonsLearned": [
-      "Strengthened full-stack web development skills.",
-    "Improved understanding of authentication and role-based authorization.",
-    "Learned to design scalable relational database structures.",
-    "Gained practical experience building internal business applications independently."
+      "Strengthened understanding of enterprise application development and internal business system requirements.",
+      "Improved knowledge of authentication and authorization patterns for multi-role web applications.",
+      "Learned scalable relational database design for production environments.",
+      "Experienced end-to-end software development lifecycle independently, from requirements analysis to deployment."
     ],
     "techStack": [
-      "NextJS",
+      "Next.js",
       "TypeScript",
       "PHP",
       "MySQL",
@@ -55,11 +55,15 @@
       {
         "title": "Landing Page",
         "image": "/prm-telkom.site.png"
+      },
+      {
+        "title": "Booking Room Page",
+        "image": "/prm-telkom-preview.png"
       }
     ],
     "github": [
       {
-        "label": "Repository",
+        "label": "View Repository",
         "url": "https://github.com/DestianArdanAlfatanu/SistemPRM"
       }
     ],
@@ -73,58 +77,60 @@
     "id": 2,
     "slug": "internship-management-system-kai",
     "title": "Internship Management System",
-    "organization": "PT Kereta Api Indonesia DAOP V Purwokerto",
+    "organization": "PT Kereta Api Indonesia (Persero)",
     "type": "Internship Project",
     "teamSize": 2,
-    "duration": "1 Months",
+    "duration": "1 Month",
     "year": 2024,
     "role": "Full-stack Developer",
-    "description": "Web-based internship management system developed to streamline internship participant administration and reporting within PT Kereta Api Indonesia DAOP V.",
-    "longDescription": "Developed during my internship at PT Kereta Api Indonesia DAOP V Purwokerto, this web application digitalizes the internship administration process by centralizing participant data, internship status, and report management. The system enables administrators to efficiently manage internship records while providing users with easy access to participant information and completed internship reports.\n\nThe application was built using Laravel, Filament, and MySQL, covering database design, feature implementation, system testing, and user interface development.",
-    "problem": "Internship participant administration was previously managed manually, making data tracking, reporting, and participant management less efficient.",
-    "solution": "Designed and developed a centralized web application that simplifies internship data management, participant tracking, report storage, and administrative processes using Laravel and MySQL.",
+    "description": "Web-based internship management system for DAOP V Purwokerto to manage intern data from registration through active periods to final report archival.",
+    "longDescription": "Developed during my internship at PT Kereta Api Indonesia DAOP V Purwokerto, this web application digitalizes the internship administration process by centralizing participant data management, internship status tracking, and report archival into a single platform.\n\nThe system enables administrators to efficiently manage the complete internship lifecycle — from initial registration, active internship monitoring, to final report submission and archival. Built using Laravel Filament as the admin panel framework and MySQL for data persistence, the application covers database design, feature implementation, system testing, and user interface development.",
+    "problem": "Internship participant administration at DAOP V Purwokerto was previously managed through manual processes, making data tracking, status monitoring, report management, and participant record-keeping inefficient and prone to errors.",
+    "solution": "Designed and developed a centralized web application using Laravel Filament that streamlines internship data management from registration through active periods to final report archival, reducing manual administrative workload and improving data accessibility.",
     "responsibilities": [
-      "System Analysis",
-      "Database Design",
-      "Backend Development",
-      "Frontend Development",
-      "Laravel Filament Development",
-      "System Testing",
-      "Feature Implementation"
+      "System Analysis and Requirements Gathering",
+      "Database Schema Design with MySQL",
+      "Backend Development with Laravel",
+      "Admin Panel Development with Laravel Filament",
+      "Frontend UI Development",
+      "Feature Implementation and Testing",
+      "System Integration Testing"
     ],
     "features": [
-      "Intern Management",
-      "Internship Status Tracking",
-      "Report Management",
-      "Role-based Administration",
-      "Dashboard",
-      "Download Internship Reports"
+      "Internship participant registration and data management",
+      "Internship status tracking across lifecycle stages",
+      "Final report submission and archival system",
+      "Role-based administration dashboard",
+      "Data overview and reporting dashboard",
+      "Downloadable internship reports and documents"
     ],
     "challenges": [
-      "Designing a database structure capable of handling internship lifecycle data while maintaining data consistency."
+      "Designing a database structure capable of handling the complete internship lifecycle data while maintaining data consistency across registration, active periods, and archival stages.",
+      "Building an intuitive admin interface using Laravel Filament that non-technical staff could operate efficiently."
     ],
     "lessonsLearned": [
-      "Strengthened full-stack development skills using Laravel.",
-      "Improved relational database design with MySQL.",
+      "Strengthened full-stack development skills using the Laravel ecosystem.",
+      "Improved relational database design for lifecycle-based data management.",
       "Learned practical system requirement analysis during enterprise software development.",
-      "Gained experience building internal administrative information systems."
+      "Gained experience building internal administrative information systems for real organizational needs."
     ],
     "techStack": [
       "Laravel",
       "Filament",
       "PHP",
-      "MySQL"
+      "MySQL",
+      "Tailwind CSS"
     ],
     "thumbnail": "/kai.png",
     "screenshots": [
       {
-        "title": "Internship Dashboard",
+        "title": "Internship Management Dashboard",
         "image": "/kai.png"
       }
     ],
     "github": [
       {
-        "label": "Repository",
+        "label": "View Repository",
         "url": null
       }
     ],
@@ -144,39 +150,39 @@
     "duration": "4 Months",
     "year": 2026,
     "role": "Full-stack Developer",
-    "description": "Web-based expert system for diagnosing BMW E36 engine power loss and undercarriage issues using a rule-based knowledge base.",
-    "longDescription": "Si Pak-E is a web-based expert system developed to help BMW E36 owners identify engine power loss and undercarriage problems without requiring extensive mechanical knowledge. The system allows users to select symptoms and generates diagnostic results based on predefined expert rules.\n\nThe application consists of a Next.js frontend and a PHP backend connected through REST APIs. It also provides an administrative dashboard for managing the knowledge base, symptoms, diagnostic rules, and user data, making the system maintainable and scalable.",
-    "problem": "BMW E36 owners often experience difficulties identifying the root cause of mechanical problems due to limited technical knowledge and the lack of accessible diagnostic tools.",
-    "solution": "Developed a rule-based expert system that processes selected symptoms, evaluates diagnostic rules stored in the knowledge base, and generates possible causes along with recommended solutions through a web application.",
+    "description": "Web-based expert system for diagnosing BMW E36 engine & undercarriage problems using the Certainty Factor method, processing user-reported symptoms to generate diagnostic results with calculated confidence levels.",
+    "longDescription": "Si Pak-E is a web-based expert system developed to help BMW E36 owners identify engine power loss and undercarriage problems without requiring extensive mechanical knowledge.\n\nThe system performs diagnosis by processing user-selected symptoms through the Certainty Factor inference method. Users provide their confidence level for each symptom they experience, and the system calculates the certainty of each possible diagnosis by combining individual symptom certainty values using the Certainty Factor combination formula. This approach was chosen because it effectively handles uncertainty in user-reported data while providing measurable confidence scores for each diagnosis result.\n\nThe application consists of a Next.js frontend and a PHP backend connected through REST APIs. It also provides an administrative dashboard for managing the knowledge base, symptoms, diagnostic rules, and user data, making the system maintainable and scalable.",
+    "problem": "BMW E36 owners often experience difficulties identifying the root cause of mechanical problems due to limited technical knowledge and the lack of accessible diagnostic tools that can process uncertain symptom information.",
+    "solution": "Developed a rule-based expert system using the Certainty Factor method that processes user-reported symptoms with individual confidence levels, evaluates diagnostic rules from the knowledge base, and generates possible causes along with calculated certainty percentages and recommended solutions.",
     "responsibilities": [
-      "System Analysis",
-      "Knowledge Base Design",
-      "Frontend Development",
-      "Backend Development",
-      "REST API Development",
-      "Database Design",
-      "Authentication",
-      "Admin Dashboard Development"
+      "System Analysis and Knowledge Base Design",
+      "Certainty Factor Algorithm Implementation",
+      "Frontend Development with Next.js and TypeScript",
+      "Backend REST API Development with PHP",
+      "Database Design for Knowledge-based Systems",
+      "Authentication and Authorization",
+      "Admin Dashboard Development",
+      "System Testing and Validation"
     ],
     "features": [
-      "Expert Diagnosis",
-      "Knowledge Base Management",
-      "Symptom Management",
-      "Diagnostic Rule Management",
-      "Authentication",
-      "Role-based Access Control",
-      "Admin Dashboard",
-      "Diagnosis History"
+      "Interactive symptom-based diagnosis with confidence input",
+      "Certainty Factor calculation with percentage-based results",
+      "Knowledge base management for expert rules and symptoms",
+      "Symptom and diagnostic rule CRUD management",
+      "Secure authentication with role-based access control",
+      "Administrative dashboard with system overview",
+      "Diagnosis history tracking and review"
     ],
     "challenges": [
-      "Designing a flexible rule-based inference mechanism capable of handling multiple symptom combinations accurately.",
-      "Maintaining consistency between frontend diagnosis flows and backend inference logic through REST API communication."
+      "Designing a flexible Certainty Factor inference mechanism capable of handling multiple symptom combinations with varying confidence levels while producing accurate diagnostic results.",
+      "Maintaining consistency between frontend diagnosis flows and backend inference logic through REST API communication.",
+      "Structuring the knowledge base to support easy maintenance and expansion of diagnostic rules by domain experts."
     ],
     "lessonsLearned": [
-      "Strengthened understanding of expert system architecture and rule-based reasoning.",
-      "Improved full-stack development skills using Next.js and PHP.",
+      "Strengthened understanding of expert system architecture, rule-based reasoning, and the Certainty Factor inference method.",
+      "Improved full-stack development skills using Next.js and PHP with REST API integration.",
       "Learned to design scalable relational database structures for knowledge-based systems.",
-      "Enhanced experience integrating frontend and backend services through REST APIs."
+      "Enhanced experience integrating complex business logic between frontend and backend services."
     ],
     "techStack": [
       "Next.js",
@@ -192,8 +198,16 @@
         "image": "/admin-sipake.png"
       },
       {
-        "title": "Consultation Modul",
+        "title": "Consultation Module",
         "image": "/konsul-sipake.png"
+      },
+      {
+        "title": "Login Page",
+        "image": "/login-sipake.png"
+      },
+      {
+        "title": "Registration Page",
+        "image": "/registrasi-sipake.png"
       }
     ],
     "github": [
@@ -222,33 +236,35 @@
     "duration": "3 Months",
     "year": 2024,
     "role": "Front-end Developer",
-    "description": "Responsive landing page for a smart agriculture platform built with React and Tailwind CSS.",
-    "longDescription": "Smartani is a landing page developed to present a digital agriculture platform through a clean, responsive interface. The site communicates the platform's services, features, and vision while maintaining consistent usability across desktop and mobile devices.\n\nThe front end was built using React with a component-based architecture, styled with Tailwind CSS. Development prioritized reusable components, maintainable structure, and smooth user interactions across all viewports.",
-    "problem": "The platform needed a professional web presence to clearly communicate its products, services, and value proposition to potential users and stakeholders.",
-    "solution": "Built a responsive, component-based landing page using React and Tailwind CSS with modular sections, consistent visual hierarchy, and optimized navigation flow.",
+    "description": "Responsive landing page for the Smartani IoT agriculture platform, built with React and Tailwind CSS using component-based architecture and mobile-first responsive design.",
+    "longDescription": "Smartani is a responsive landing page developed for the Smartani IoT Farmer organization to establish a professional web presence for their smart agriculture platform. The website communicates the platform's products, services, features, and vision through a clean, modern interface optimized for all devices.\n\nThe front end was built using React with a component-based architecture, styled with Tailwind CSS. Development focused on creating reusable UI components, maintaining a clear information hierarchy, implementing smooth scroll navigation, and ensuring consistent responsive layouts across desktop, tablet, and mobile breakpoints.",
+    "problem": "The Smartani IoT Farmer organization needed a professional web presence to clearly communicate its products, services, and value proposition to potential users, partners, and stakeholders.",
+    "solution": "Built a responsive, component-based landing page using React and Tailwind CSS with modular sections, consistent visual hierarchy, interactive elements, and optimized navigation flow across all device sizes.",
     "responsibilities": [
-      "UI Implementation",
-      "Responsive Web Development",
-      "Component Architecture",
-      "Landing Page Development",
-      "Performance Optimization"
+      "UI Design and Implementation",
+      "Responsive Web Development with Mobile-first Approach",
+      "Component Architecture Design",
+      "Landing Page Section Development",
+      "Performance Optimization",
+      "Cross-device Testing and Optimization"
     ],
     "features": [
       "Fully responsive layout across all breakpoints",
       "Interactive hero section with call-to-action",
       "Service and feature showcase sections",
-      "FAQ section with expandable items",
+      "FAQ section with expandable accordion items",
       "Contact information section",
       "Smooth scroll navigation between sections"
     ],
     "challenges": [
-      "Maintaining consistent layout and visual hierarchy across multiple screen sizes without sacrificing performance."
+      "Maintaining consistent layout and visual hierarchy across multiple screen sizes without sacrificing performance or readability.",
+      "Designing a scalable component architecture that supports future content expansion and maintenance."
     ],
     "lessonsLearned": [
-      "Improved responsive development techniques using mobile-first approach.",
-      "Strengthened understanding of reusable component architecture in React.",
+      "Improved responsive development techniques using mobile-first approach and breakpoint-driven design.",
+      "Strengthened understanding of reusable component architecture in React applications.",
       "Gained practical experience building maintainable UIs with Tailwind CSS utility classes.",
-      "Learned to structure landing pages with clear information hierarchy for end users."
+      "Learned to structure landing pages with clear information hierarchy optimized for user scanning patterns."
     ],
     "techStack": [
       "React",
@@ -258,13 +274,17 @@
     "thumbnail": "/smartani.cloud.png",
     "screenshots": [
       {
-        "title": "Landing Page",
+        "title": "Landing Page Overview",
         "image": "/preview-smartani.png"
+      },
+      {
+        "title": "Full Page View",
+        "image": "/smartani.cloud.png"
       }
     ],
     "github": [
       {
-        "label": "Repository",
+        "label": "View Repository",
         "url": "https://github.com/DestianArdanAlfatanu/Smartani"
       }
     ],
@@ -284,37 +304,36 @@
     "duration": "3 Months",
     "year": 2025,
     "role": "Front-end Developer",
-    "description": "Responsive landing page for DiikatJanji, a digital wedding invitation platform designed to showcase its features, services, and user experience.",
-    "longDescription": "DiikatJanji is a modern landing page developed to introduce a digital wedding invitation platform that simplifies wedding event management through an elegant and informative web experience. The landing page highlights the platform's core services, visual identity, and value proposition for prospective users.\n\nBuilt with React and Tailwind CSS, the project emphasizes responsive layouts, reusable components, smooth navigation, and a clean interface to deliver a professional first impression while maintaining fast performance across devices.",
-    "problem": "The platform required a modern website to effectively communicate its services, highlight its unique features, and provide a professional online presence for potential customers.",
-    "solution": "Designed and developed a responsive landing page with a component-based architecture, intuitive navigation, and consistent visual hierarchy to present the platform's information clearly across desktop and mobile devices.",
+    "description": "Responsive landing page for DiikatJanji, a modern digital wedding invitation platform featuring RSVP management, countdown timers, galleries, maps integration, music players, and love story sections.",
+    "longDescription": "DiikatJanji is a modern landing page developed to introduce a digital wedding invitation platform that simplifies wedding event management through an elegant and informative web experience. The platform enables couples to create personalized digital invitations with interactive features including RSVP management, countdown timers, photo galleries, Google Maps integration, background music players, love story timelines, and gift information sections.\n\nBuilt with React and Tailwind CSS, the project emphasizes responsive layouts, reusable components, smooth navigation, and a clean interface to deliver a professional first impression while maintaining fast performance across devices.",
+    "problem": "The platform required a modern website to effectively communicate its digital invitation services, showcase key features like RSVP, countdown, gallery, and maps integration, and provide a professional online presence for potential customers.",
+    "solution": "Designed and developed a responsive landing page with a component-based architecture, intuitive navigation, and consistent visual hierarchy that clearly presents the platform's full feature set across desktop and mobile devices.",
     "responsibilities": [
-      "UI Implementation",
+      "UI Design and Implementation",
       "Responsive Web Development",
-      "Component Architecture",
-      "Landing Page Development",
+      "Component Architecture Design",
+      "Landing Page Section Development",
       "Performance Optimization",
       "User Experience Enhancement"
     ],
     "features": [
-      "Responsive Landing Page",
-      "Interactive Hero Section",
-      "Feature Showcase",
-      "Pricing Section",
-      "FAQ Section",
-      "Contact Section",
-      "Smooth Scroll Navigation",
-      "Call-to-Action Sections"
+      "Responsive landing page with mobile-first design",
+      "Interactive hero section with platform introduction",
+      "Feature showcase highlighting RSVP, countdown, gallery, maps, and music",
+      "Pricing and package comparison section",
+      "FAQ section with expandable items",
+      "Contact and inquiry section",
+      "Smooth scroll navigation with call-to-action elements"
     ],
     "challenges": [
       "Designing an attractive marketing landing page while maintaining consistent responsiveness and performance across different screen sizes.",
-      "Creating reusable UI components that simplify future maintenance and feature expansion."
+      "Creating reusable UI components that simplify future maintenance and feature expansion for the growing platform."
     ],
     "lessonsLearned": [
-      "Improved responsive UI development using React and Tailwind CSS.",
-      "Strengthened understanding of component-based frontend architecture.",
-      "Learned to build marketing-focused landing pages with clear information hierarchy.",
-      "Enhanced skills in designing user interfaces that balance aesthetics and usability."
+      "Improved responsive UI development using React and Tailwind CSS for marketing-focused websites.",
+      "Strengthened understanding of component-based frontend architecture for scalable applications.",
+      "Learned to build marketing-focused landing pages with clear information hierarchy and conversion-oriented design.",
+      "Enhanced skills in designing user interfaces that balance aesthetics with usability."
     ],
     "techStack": [
       "React",
@@ -325,12 +344,16 @@
     "screenshots": [
       {
         "title": "Landing Page",
+        "image": "/diikatjanji.com.png"
+      },
+      {
+        "title": "Full Page View",
         "image": "/diikatjanji-preview.png"
       }
     ],
     "github": [
       {
-        "label": "Repository",
+        "label": "View Repository",
         "url": "https://github.com/DestianArdanAlfatanu/DiikatJanji"
       }
     ],
@@ -338,51 +361,51 @@
     "category": ["Landing Page"],
     "status": "Completed",
     "featured": false,
-    "relatedProjects": [1 , 4]
+    "relatedProjects": [1, 4]
   },
   {
     "id": 6,
     "slug": "azhar-vinka-digital-invitation",
-    "title": "Digital Invitation",
+    "title": "Azhar & Vinka Digital Invitation",
     "organization": "DiikatJanji",
     "type": "Client Project",
     "teamSize": 3,
     "duration": "2 Weeks",
     "year": 2026,
     "role": "Front-end Developer",
-    "description": "Responsive digital wedding invitation built for a real client using the DiikatJanji platform with an elegant and interactive user experience.",
-    "longDescription": "Azhar & Vinka Digital Invitation is a client-facing wedding invitation website developed using the DiikatJanji platform. The project focuses on delivering an elegant, responsive, and interactive invitation experience that can be accessed seamlessly across desktop and mobile devices.\n\nThe invitation presents event information in a visually engaging format while incorporating modern web interactions and optimized layouts. The implementation emphasizes responsive UI development, smooth navigation, and clean component structure to ensure a polished user experience.",
-    "problem": "The client required a modern digital invitation that could replace conventional printed invitations while providing guests with an accessible and engaging online experience.",
-    "solution": "Developed a responsive wedding invitation interface with a clean visual hierarchy, intuitive navigation, and interactive sections to deliver important event information in a modern web format.",
+    "description": "Production digital wedding invitation built for a real client featuring RSVP, countdown timer, photo gallery, Google Maps, music player, love story, and gift information sections.",
+    "longDescription": "Azhar & Vinka Digital Invitation is a production-ready wedding invitation website developed for a real client using the DiikatJanji platform. The project delivers an elegant, responsive, and interactive digital invitation experience accessible across all devices.\n\nThe invitation features a comprehensive set of interactive sections including RSVP management for guest confirmation, a countdown timer to the wedding date, a curated photo gallery, Google Maps integration for venue navigation, a background music player, a love story timeline, and gift information. The implementation emphasizes responsive UI development, smooth animations, and optimized performance for media-rich content.",
+    "problem": "The client required a modern digital invitation that could replace conventional printed invitations while providing guests with an accessible and engaging online experience with interactive features.",
+    "solution": "Developed a responsive, media-rich wedding invitation with interactive sections including RSVP, countdown, gallery, maps, music, love story, and gift information, ensuring consistent user experience across all devices.",
     "responsibilities": [
-      "UI Implementation",
-      "Responsive Web Development",
-      "Landing Page Development",
-      "Component Development",
-      "Cross-device Optimization",
-      "Deployment"
+      "UI Implementation and Responsive Development",
+      "Interactive Component Development",
+      "RSVP and Countdown Feature Implementation",
+      "Gallery and Media Integration",
+      "Google Maps Integration",
+      "Cross-device Testing and Optimization",
+      "Production Deployment"
     ],
     "features": [
-      "Responsive Wedding Invitation",
-      "Hero Section",
-      "Bride & Groom Profile",
-      "Event Timeline",
-      "Countdown Timer",
-      "Photo Gallery",
-      "Google Maps Integration",
-      "RSVP Section",
-      "Background Music",
-      "Smooth Scroll Navigation"
+      "Responsive wedding invitation with elegant design",
+      "RSVP section for guest confirmation",
+      "Countdown timer to wedding date",
+      "Photo gallery with optimized media loading",
+      "Google Maps integration for venue navigation",
+      "Background music player with controls",
+      "Love story timeline section",
+      "Gift information and digital payment details",
+      "Smooth scroll navigation between sections"
     ],
     "challenges": [
-      "Ensuring a consistent user experience across desktop and mobile devices while maintaining smooth animations and fast page loading.",
-      "Balancing visual aesthetics with performance optimization for media-rich content."
+      "Ensuring a consistent user experience across desktop and mobile devices while maintaining smooth animations and fast page loading for media-rich content.",
+      "Balancing visual aesthetics with performance optimization for a page containing multiple images, maps, and audio elements."
     ],
     "lessonsLearned": [
-      "Improved experience building production-ready client websites.",
-      "Strengthened responsive UI development and component organization.",
-      "Learned to optimize interactive landing pages containing multimedia content.",
-      "Enhanced understanding of user experience for event-based web applications."
+      "Improved experience building production-ready client websites with real deadlines and client feedback.",
+      "Strengthened responsive UI development and component organization for complex interactive pages.",
+      "Learned to optimize interactive landing pages containing multimedia content for performance.",
+      "Enhanced understanding of user experience design for event-based web applications."
     ],
     "techStack": [
       "HTML",
@@ -393,13 +416,17 @@
     "thumbnail": "/married.png",
     "screenshots": [
       {
-        "title": "Landing Page",
+        "title": "Invitation Hero Section",
         "image": "/hero.png"
+      },
+      {
+        "title": "Event Details",
+        "image": "/married.png"
       }
     ],
     "github": [
       {
-        "label": "Repository",
+        "label": "View Repository",
         "url": "https://github.com/DestianArdanAlfatanu/Azhar---Vinka"
       }
     ],
@@ -407,51 +434,51 @@
     "category": ["Digital Invitation", "Landing Page"],
     "status": "Completed",
     "featured": false,
-    "relatedProjects": [7]
+    "relatedProjects": [7, 5]
   },
-    {
+  {
     "id": 7,
     "slug": "kiki-dewi-digital-invitation",
-    "title": "Digital Invitation",
+    "title": "Kiki & Dewi Digital Invitation",
     "organization": "DiikatJanji",
     "type": "Client Project",
     "teamSize": 3,
     "duration": "2 Weeks",
     "year": 2026,
     "role": "Front-end Developer",
-    "description": "Responsive digital wedding invitation built for a real client using the DiikatJanji platform with an elegant and interactive user experience.",
-    "longDescription": "Kiki & Dewi Digital Invitation is a client-facing wedding invitation website developed using the DiikatJanji platform. The project focuses on delivering an elegant, responsive, and interactive invitation experience that can be accessed seamlessly across desktop and mobile devices.\n\nThe invitation presents event information in a visually engaging format while incorporating modern web interactions and optimized layouts. The implementation emphasizes responsive UI development, smooth navigation, and clean component structure to ensure a polished user experience.",
-    "problem": "The client required a modern digital invitation that could replace conventional printed invitations while providing guests with an accessible and engaging online experience.",
-    "solution": "Developed a responsive wedding invitation interface with a clean visual hierarchy, intuitive navigation, and interactive sections to deliver important event information in a modern web format.",
+    "description": "Production digital wedding invitation built for a real client featuring RSVP, Google Calendar integration, photo gallery, Google Maps, music player, and responsive design.",
+    "longDescription": "Kiki & Dewi Digital Invitation is a production-ready wedding invitation website developed for a real client using the DiikatJanji platform. The project focuses on delivering an elegant, responsive, and interactive invitation experience accessible across all devices.\n\nThe invitation features comprehensive interactive sections including RSVP management, Google Calendar integration for event reminders, a photo gallery, Google Maps for venue navigation, a background music player, and smooth scroll navigation. Development prioritized responsive layouts, clean component structure, and optimized performance across different screen sizes.",
+    "problem": "The client required a modern digital invitation that could replace conventional printed invitations while providing guests with an accessible and engaging online experience with calendar integration and RSVP functionality.",
+    "solution": "Developed a responsive wedding invitation with interactive features including RSVP, Google Calendar integration, gallery, maps, and music player, ensuring an elegant and consistent experience across all devices.",
     "responsibilities": [
-      "UI Implementation",
-      "Responsive Web Development",
-      "Landing Page Development",
-      "Component Development",
-      "Cross-device Optimization",
-      "Deployment"
+      "UI Implementation and Responsive Development",
+      "Interactive Component Development",
+      "RSVP and Google Calendar Integration",
+      "Gallery and Media Integration",
+      "Google Maps Integration",
+      "Cross-device Testing and Optimization",
+      "Production Deployment"
     ],
     "features": [
-      "Responsive Wedding Invitation",
-      "Hero Section",
-      "Bride & Groom Profile",
-      "Event Timeline",
-      "Google Calendar Integration",
-      "Photo Gallery",
-      "Google Maps Integration",
-      "RSVP Section",
-      "Background Music",
-      "Smooth Scroll Navigation"
+      "Responsive wedding invitation with elegant design",
+      "RSVP section for guest confirmation",
+      "Google Calendar integration for event reminders",
+      "Photo gallery with optimized media loading",
+      "Google Maps integration for venue navigation",
+      "Background music player with controls",
+      "Bride and groom profile sections",
+      "Event timeline with ceremony details",
+      "Smooth scroll navigation between sections"
     ],
     "challenges": [
       "Ensuring a consistent user experience across desktop and mobile devices while maintaining smooth animations and fast page loading.",
-      "Balancing visual aesthetics with performance optimization for media-rich content."
+      "Integrating Google Calendar API for seamless event reminder functionality within the invitation flow."
     ],
     "lessonsLearned": [
-      "Improved experience building production-ready client websites.",
-      "Strengthened responsive UI development and component organization.",
-      "Learned to optimize interactive landing pages containing multimedia content.",
-      "Enhanced understanding of user experience for event-based web applications."
+      "Improved experience building production-ready client websites with iterative client feedback.",
+      "Strengthened responsive UI development and component organization for complex pages.",
+      "Learned to integrate third-party services like Google Calendar into web applications.",
+      "Enhanced understanding of user experience design for event-based web applications."
     ],
     "techStack": [
       "HTML",
@@ -462,13 +489,21 @@
     "thumbnail": "/kiki.png",
     "screenshots": [
       {
-        "title": "Landing Page",
+        "title": "Invitation Landing",
         "image": "/dewi.png"
+      },
+      {
+        "title": "Invitation Overview",
+        "image": "/kiki.png"
+      },
+      {
+        "title": "Message Section",
+        "image": "/pesan.png"
       }
     ],
     "github": [
       {
-        "label": "Repository",
+        "label": "View Repository",
         "url": "https://github.com/DestianArdanAlfatanu/Azhar---Vinka"
       }
     ],
@@ -476,6 +511,6 @@
     "category": ["Digital Invitation", "Landing Page"],
     "status": "Completed",
     "featured": false,
-    "relatedProjects": [6]
-  } 
+    "relatedProjects": [6, 5]
+  }
 ]

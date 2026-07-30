@@ -11,7 +11,7 @@ export default function Contact() {
   const email = 'destianardanalfatanu@gmail.com';
 
   useEffect(() => {
-    document.title = 'Contact — Destian Ardan Alfatanu';
+    document.title = 'Contact — Destian Ardan Alfatanu | Full-Stack & Front-End Developer';
   }, []);
 
   const handleCopyEmail = async () => {
@@ -25,9 +25,9 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedContainer>
           <SectionTitle 
-            overline="Contact" 
+            overline="Currently Open to Opportunities" 
             title="Let's Work Together" 
-            description="Feel free to reach out through any of the channels below." 
+            description="I am actively seeking opportunities as a Front-End Developer or Full-Stack Developer. Feel free to reach out through any of the channels below." 
           />
 
           <div className="mt-12 bg-bg-card border border-border-subtle rounded-2xl p-4 sm:p-8 md:p-12 text-center max-w-3xl mx-auto">
@@ -64,7 +64,7 @@ export default function Contact() {
               icon={Linkedin} 
               label="LinkedIn" 
               value="Destian Ardan Alfatanu" 
-              href="https://linkedin.com/in/destian-ardan-alfatanu" 
+              href="https://www.linkedin.com/in/destian-ardan-alfatanu/" 
             />
             <ContactCard 
               icon={MessageCircle} 
