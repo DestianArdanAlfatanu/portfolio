@@ -39,10 +39,6 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <button className="flex items-center gap-2 px-2 py-1 text-xs font-mono text-text-secondary border border-border-subtle rounded-md hover:bg-bg-card transition-colors">
-            <Command className="w-3 h-3" />
-            <span>K</span>
-          </button>
           <Button variant="primary" size="sm" href="/contact">
             Contact
           </Button>

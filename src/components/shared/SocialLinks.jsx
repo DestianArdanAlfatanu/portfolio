@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Github, Linkedin, MessageCircle, Mail } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, getGmailComposeUrl } from '@/lib/utils';
 import socialData from '@/data/social.json';
 
 const iconMap = {
@@ -23,11 +23,15 @@ const SocialLinks = memo(({ className, size = 'md', direction = 'row', showLabel
     <div className={cn("flex gap-4", direction === 'column' ? "flex-col" : "flex-row flex-wrap", className)}>
       {socialData.map((social) => {
         const Icon = iconMap[social.icon] || MessageCircle;
+        // Convert mailto: links to Gmail compose URLs
+        const href = social.url.startsWith('mailto:')
+          ? getGmailComposeUrl(social.url.replace('mailto:', ''))
+          : social.url;
         
         return (
           <a
             key={social.platform}
-            href={social.url}
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors"
