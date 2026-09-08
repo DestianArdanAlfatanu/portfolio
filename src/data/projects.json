@@ -67,7 +67,7 @@
         "url": "https://github.com/DestianArdanAlfatanu/SistemPRM"
       }
     ],
-    "liveDemo": "https://prm-telkom.site",
+    "liveDemo": null,
     "category": ["Landing Page", "Web Application"],
     "status": "Completed",
     "featured": true,
