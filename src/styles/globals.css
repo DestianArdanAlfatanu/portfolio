@@ -1,36 +1,47 @@
 @import "tailwindcss";
 
 /* ============================================
-   DESIGN SYSTEM — Custom Theme
+   DESIGN SYSTEM — Retro Web (see Design.md)
+   Single navy theme with colored section bands.
+   Contrast notes (WCAG AA):
+   - On navy/navy-surface: cream, muted, teal, orange, yellow text all pass.
+   - On cream/orange/teal fills: use ink text. Never teal/orange text on cream.
+   - On purple: cream or yellow text (teal fails for small text there).
    ============================================ */
+:root {
+  color-scheme: dark;
+}
+
 @theme {
-  /* Colors */
-  --color-bg-primary: #0A0A0B;
-  --color-bg-card: #141417;
-  --color-bg-card-hover: #1A1A1F;
-  --color-border-subtle: #1F1F24;
-  --color-border-hover: #2a2a30;
-  --color-text-primary: #FAFAFA;
-  --color-text-secondary: #A1A1AA;
-  --color-text-muted: #52525B;
-  --color-accent-indigo: #6366F1;
-  --color-accent-indigo-hover: #818CF8;
-  --color-accent-indigo-muted: rgba(99, 102, 241, 0.1);
-  --color-accent-cyan: #22D3EE;
-  --color-accent-cyan-muted: rgba(34, 211, 238, 0.1);
+  --color-navy: #1E1A4A;
+  --color-navy-deep: #151238;
+  --color-navy-surface: #2A2466;
+  --color-grid: #2E2870;
+  --color-cream: #F3E6C8;
+  --color-cream-dark: #E2CFA4;
+  --color-ink: #14112E;
+  --color-muted: #B7B0D8;
+  --color-orange: #F07B2C;
+  --color-teal: #2BB3A8;
+  --color-teal-dark: #1F8C84;
+  --color-purple: #5B3FA8;
+  --color-purple-deep: #4A3494;
+  --color-yellow: #F5C542;
+  --color-shade: #0B0920;
+
+  --shadow-px: 4px 4px 0 0 var(--color-shade);
+  --shadow-px-sm: 2px 2px 0 0 var(--color-shade);
+  --shadow-px-lg: 6px 6px 0 0 var(--color-shade);
 
   /* Font families */
   --font-sans: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Pixelify Sans', 'Silkscreen', monospace;
+  --font-pixel: 'Silkscreen', 'Geist Mono', monospace;
 
   /* Animation easings */
   --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  /* Shadows */
-  --shadow-card: 0 0 0 1px var(--color-border-subtle);
-  --shadow-card-hover: 0 0 0 1px var(--color-border-hover), 0 8px 24px rgba(0, 0, 0, 0.3);
-  --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.4);
 
   /* Spacing scale extensions */
   --spacing-18: 4.5rem;
@@ -59,43 +70,46 @@
   }
 
   body {
-    font-family: var(--font-sans);
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    line-height: 1.6;
+    font-family: var(--font-mono);
+    background-color: var(--color-navy);
+    color: var(--color-cream);
+    line-height: 1.7;
     min-height: 100dvh;
     overflow-x: hidden;
   }
 
   /* Selection */
   ::selection {
-    background-color: rgba(99, 102, 241, 0.3);
-    color: var(--color-text-primary);
+    background-color: var(--color-teal);
+    color: var(--color-ink);
   }
 
   /* Scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--color-navy-deep);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-border-subtle);
-    border-radius: 3px;
+    background: var(--color-purple);
+    border: 2px solid var(--color-navy-deep);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-muted);
+    background: var(--color-teal);
   }
 
-  /* Focus styles */
+  /* Focus: yellow reads on navy, purple, teal and orange; ink inside cream areas */
   :focus-visible {
-    outline: 2px solid var(--color-accent-indigo);
-    outline-offset: 2px;
-    border-radius: 4px;
+    outline: 3px solid var(--color-yellow);
+    outline-offset: 3px;
+  }
+
+  .on-light :focus-visible {
+    outline-color: var(--color-ink);
   }
 
   /* Images */
@@ -116,7 +130,15 @@
     line-height: 1.2;
     letter-spacing: -0.02em;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: inherit;
+  }
+
+  /* Display headings: chunky pixel font. Never for paragraphs. */
+  .h-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
   }
 
   /* Code */
@@ -129,52 +151,62 @@
    UTILITY CLASSES
    ============================================ */
 @layer utilities {
-  .text-gradient {
-    background: linear-gradient(135deg, var(--color-accent-indigo) 0%, var(--color-accent-cyan) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Fine dither: 1px dots on a 4px grid */
+  .bg-dither {
+    background-image: radial-gradient(rgba(11, 9, 32, 0.35) 1px, transparent 1px);
+    background-size: 4px 4px;
   }
 
-  .border-gradient {
-    border-image: linear-gradient(135deg, var(--color-accent-indigo), var(--color-accent-cyan)) 1;
+  /* Graph-paper grid on navy */
+  .bg-grid {
+    background-image:
+      linear-gradient(var(--color-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 
-  .bg-dot-pattern {
-    background-image: radial-gradient(circle, var(--color-border-subtle) 1px, transparent 1px);
+  /* Zigzag motif for the teal band */
+  .bg-zigzag {
+    background-image:
+      linear-gradient(135deg, var(--color-teal-dark) 25%, transparent 25%),
+      linear-gradient(225deg, var(--color-teal-dark) 25%, transparent 25%),
+      linear-gradient(315deg, var(--color-teal-dark) 25%, transparent 25%),
+      linear-gradient(45deg, var(--color-teal-dark) 25%, transparent 25%);
+    background-position: -12px 0, -12px 0, 0 0, 0 0;
     background-size: 24px 24px;
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.5s var(--ease-smooth) forwards;
+  /* CRT scanlines overlay */
+  .scanlines {
+    background-image: repeating-linear-gradient(to bottom, rgba(11, 9, 32, 0.18) 0 1px, transparent 1px 3px);
   }
 
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  /* Hard pixel drop shadow for display type */
+  .text-shadow-px {
+    text-shadow: 4px 4px 0 var(--color-shade);
   }
 
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .clip-star {
+    clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
   }
-}
 
-/* ============================================
-   KEYFRAMES
-   ============================================ */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
+  .clip-burst {
+    clip-path: polygon(50% 0, 58% 22%, 79% 9%, 74% 32%, 98% 30%, 80% 47%, 100% 62%, 76% 66%, 86% 89%, 63% 79%, 54% 100%, 44% 79%, 22% 92%, 28% 68%, 3% 66%, 21% 50%, 2% 32%, 26% 32%, 20% 8%, 42% 22%);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  /* "Pressed" interaction for raised elements (pair with shadow-px) */
+  .press {
+    transition: transform 120ms var(--ease-smooth), box-shadow 120ms var(--ease-smooth);
+  }
+
+  .press:hover {
+    transform: translate(2px, 2px);
+    box-shadow: var(--shadow-px-sm);
+  }
+
+  .press:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
   }
 }
 
@@ -227,4 +259,27 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Keep the pressed feedback via shadow only, without movement */
+  .press:hover,
+  .press:active {
+    transform: none;
+  }
 }

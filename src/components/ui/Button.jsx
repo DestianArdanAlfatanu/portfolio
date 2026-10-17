@@ -25,25 +25,34 @@ export const Button = forwardRef(({
   disabled,
   ...rest
 }, ref) => {
-  const baseClasses = "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-indigo focus:ring-offset-2 focus:ring-offset-bg-primary disabled:opacity-50 disabled:cursor-not-allowed";
-  
+  // Retro style: sharp corners, 2px border, pixel label. Filled variants are raised
+  // with a hard shadow and "press" on hover; outline variants fill on hover.
+  // Focus ring comes from the global :focus-visible rule.
+  const baseClasses = "inline-flex items-center justify-center rounded-none border-2 font-pixel uppercase tracking-normal leading-none select-none disabled:cursor-not-allowed aria-disabled:cursor-not-allowed";
+  const raised = "shadow-px press border-shade";
+
   const variants = {
-    primary: "bg-accent-indigo text-white hover:bg-accent-indigo-hover",
-    secondary: "bg-bg-card text-text-primary border border-border-subtle hover:bg-bg-card-hover",
-    ghost: "bg-transparent text-text-secondary hover:text-text-primary hover:bg-bg-card",
-    outline: "bg-transparent border border-border-subtle text-text-primary hover:bg-bg-card",
+    primary: cn(raised, "bg-teal text-ink"),
+    orange: cn(raised, "bg-orange text-ink"),
+    dark: cn(raised, "bg-ink text-cream"),
+    secondary: "transition-colors bg-transparent border-orange text-orange hover:bg-orange hover:text-ink",
+    outline: "transition-colors bg-transparent border-teal text-teal hover:bg-teal hover:text-ink",
+    ghost: "transition-colors bg-transparent border-transparent text-teal hover:border-teal",
   };
 
+  const disabledClasses = "bg-muted text-ink border-muted shadow-none pointer-events-none";
+
   const sizes = {
-    sm: "h-8 px-3 text-sm gap-1.5",
-    md: "h-10 px-4 text-sm gap-2",
-    lg: "h-12 px-6 text-base gap-2.5",
+    sm: "h-9 px-3 text-xs gap-1.5",
+    md: "h-10 px-4 text-xs gap-2",
+    lg: "h-12 px-5 text-sm gap-2.5",
   };
 
   const classes = cn(
     baseClasses,
     variants[variant],
     sizes[size],
+    disabled && disabledClasses,
     className
   );
 

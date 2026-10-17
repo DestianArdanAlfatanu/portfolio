@@ -1,21 +1,19 @@
 import React, { memo } from 'react';
 import { cn } from '@/lib/utils';
 
-export const CategoryBadge = memo(({ name, className, variant = 'default', size = 'sm' }) => {
-  const baseClasses = "inline-flex items-center justify-center rounded-full font-medium transition-colors duration-200 cursor-default";
+const variants = {
+  purple: 'bg-purple text-cream',
+  orange: 'bg-orange text-ink',
+};
 
-  const variants = {
-    default: "bg-accent-indigo-muted text-accent-indigo border border-accent-indigo/20 hover:border-accent-indigo/40",
-    outline: "bg-transparent text-accent-indigo border border-accent-indigo/25 hover:border-accent-indigo/50 hover:bg-accent-indigo-muted"
-  };
-
+export const CategoryBadge = memo(({ name, className, variant = 'purple', size = 'sm' }) => {
   const sizes = {
-    sm: "px-2.5 py-0.5 text-[10px] uppercase tracking-wider",
-    md: "px-3 py-1 text-xs uppercase tracking-wider"
+    sm: 'px-2 py-1 text-[10px]',
+    md: 'px-2.5 py-1.5 text-xs',
   };
 
   return (
-    <span className={cn(baseClasses, variants[variant], sizes[size], className)}>
+    <span className={cn('inline-flex items-center border-2 border-shade font-pixel uppercase leading-none', variants[variant], sizes[size], className)}>
       {name}
     </span>
   );

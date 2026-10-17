@@ -34,5 +34,24 @@
     "description": "Developed and maintained a web-based internship management system for DAOP V Purwokerto used to streamline internship participant administration, tracking registration through active internship periods to final report archival. Built the application using Laravel Filament and MySQL, covering database design, feature implementation, and system testing to improve data accessibility and reduce manual administrative workload.",
     "techStack": ["Laravel", "Filament", "PHP", "MySQL", "Tailwind CSS"],
     "type": "Internship"
+  },
+  {
+    "id": 5,
+    "company": "Techworksnesia",
+    "role": "Co-Founder & Full Stack Engineer",
+    "period": "Sep 2026 - Present",
+    "description": "Co-founded a software development agency focused on building custom B2B applications. Designed and developed end-to-end business systems, including a vocational training management platform with separate staff and student portals, REST APIs, role-based access control, automated WhatsApp notifications, and PostgreSQL-based data management.",
+    "techStack": [
+      "React",
+      "TypeScript",
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "REST API",
+      "JWT",
+      "RBAC"
+    ],
+    "type": "Remote"
   }
+
 ]

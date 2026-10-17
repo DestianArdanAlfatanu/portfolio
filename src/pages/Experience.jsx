@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import SectionTitle from '@/components/ui/SectionTitle';
-import AnimatedContainer from '@/components/ui/AnimatedContainer';
+import PageHeader from '@/components/layout/PageHeader';
 import Timeline from '@/components/shared/Timeline';
 import ExperienceCard from '@/components/cards/ExperienceCard';
 import { getExperience } from '@/data/dataService';
@@ -18,19 +17,18 @@ export default function Experience() {
   }, []);
 
   return (
-    <section className="py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedContainer>
-          <SectionTitle overline="Career" title="Professional Experience" />
-          <div className="mt-12">
-            <Timeline>
-              {experiences.map((exp, index) => (
-                <ExperienceCard key={exp.id || index} experience={exp} />
-              ))}
-            </Timeline>
-          </div>
-        </AnimatedContainer>
-      </div>
-    </section>
+    <>
+      <PageHeader overline="Career" title="Professional Experience" />
+
+      <section className="bg-navy-deep border-b-2 border-shade">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+          <Timeline>
+            {experiences.map((exp, idx) => (
+              <ExperienceCard key={exp.id} experience={exp} delay={Math.min(idx, 4) * 0.06} />
+            ))}
+          </Timeline>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,19 +1,23 @@
 import React, { memo } from 'react';
-import { Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import PixelIcon from '@/components/ui/PixelIcon';
 
-const SearchBar = memo(({ value, onChange, placeholder = 'Search projects...', className }) => {
+/**
+ * OS-style text input with an inset bevel. Meant for cream panels.
+ */
+const SearchBar = memo(({ value, onChange, placeholder = 'Search projects...', label = 'Search', className }) => {
   return (
-    <div className={cn("relative w-full", className)}>
-      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <Search className="h-4 w-4 text-text-muted" />
-      </div>
+    <div className={cn('relative w-full', className)}>
+      <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-ink">
+        <PixelIcon name="search" size={18} />
+      </span>
       <input
-        type="text"
+        type="search"
         value={value}
         onChange={(e) => onChange?.(e.target.value)}
         placeholder={placeholder}
-        className="block w-full bg-bg-card border border-border-subtle rounded-lg py-2.5 pl-10 pr-4 text-sm text-text-primary placeholder:text-text-muted focus:border-accent-indigo focus:ring-1 focus:ring-accent-indigo outline-none transition-colors"
+        aria-label={label}
+        className="block w-full h-10 bg-white border-2 border-ink shadow-[inset_2px_2px_0_0_rgba(20,17,46,0.25)] pl-10 pr-3 text-sm text-ink placeholder:text-ink/60 outline-none focus-visible:outline-3 focus-visible:outline-ink focus-visible:outline-offset-2"
       />
     </div>
   );

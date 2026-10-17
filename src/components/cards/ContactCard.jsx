@@ -1,38 +1,30 @@
 import React, { memo } from 'react';
-import { cn } from '@/lib/utils';
+import PixelIcon from '@/components/ui/PixelIcon';
 
-export const ContactCard = memo(({ icon: Icon, label, value, href, onClick }) => {
-  const CardWrapper = href ? 'a' : onClick ? 'button' : 'div';
-  const wrapperProps = {};
-  
-  if (href) {
-    wrapperProps.href = href;
-    wrapperProps.target = '_blank';
-    wrapperProps.rel = 'noopener noreferrer';
-  } else if (onClick) {
-    wrapperProps.onClick = onClick;
-    wrapperProps.type = 'button';
-  }
+/**
+ * Contact channel row for navy panels: icon tile, label, value, external arrow.
+ * `icon` is any node (a PixelIcon, or a lucide icon for brands pixelarticons lacks).
+ */
+export const ContactCard = memo(({ icon, label, value, href, iconColor = 'text-yellow' }) => {
+  const isFile = /\.\w+$/.test(href) && href.startsWith('/');
 
   return (
-    <CardWrapper 
-      className={cn(
-        "bg-bg-card border border-border-subtle rounded-xl p-5 hover:bg-bg-card-hover transition-all duration-200 group flex flex-col items-center text-center gap-3 w-full",
-        (href || onClick) && "cursor-pointer"
-      )}
-      {...wrapperProps}
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="press group flex items-center gap-4 bg-navy-surface border-2 border-shade shadow-px p-4 hover:bg-navy-deep"
     >
-      <div className="p-3 rounded-xl bg-accent-indigo-muted/20 border border-accent-indigo/10 group-hover:bg-accent-indigo-muted/30 transition-colors">
-        <Icon className="w-6 h-6 text-accent-indigo" />
-      </div>
-      
-      <div>
-        <div className="text-text-muted text-sm mb-1">{label}</div>
-        <div className="text-text-primary font-medium group-hover:text-accent-indigo transition-colors">
-          {value}
-        </div>
-      </div>
-    </CardWrapper>
+      <span className={`flex items-center justify-center w-11 h-11 shrink-0 bg-navy border-2 border-shade ${iconColor}`}>
+        {icon}
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block font-pixel text-[11px] text-yellow uppercase">{label}</span>
+        <span className="block text-sm text-cream truncate mt-0.5 group-hover:underline underline-offset-4">{value}</span>
+      </span>
+      <PixelIcon name={isFile ? 'download' : 'externalLink'} size={18} className="text-muted shrink-0" />
+      <span className="sr-only">(opens in new tab)</span>
+    </a>
   );
 });
 

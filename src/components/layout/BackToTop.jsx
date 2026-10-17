@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
+import PixelIcon from '@/components/ui/PixelIcon';
 
 export const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,13 +30,12 @@ export const BackToTop = () => {
           transition={{ duration: 0.2 }}
           onClick={scrollToTop}
           className={cn(
-            'fixed bottom-6 right-6 z-50 flex h-10 w-10 items-center justify-center rounded-full',
-            'bg-bg-card border border-border-subtle text-text-primary shadow-lg',
-            'hover:bg-bg-card-hover transition-colors'
+            'press fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center',
+            'bg-teal text-ink border-2 border-shade shadow-px'
           )}
           aria-label="Back to top"
         >
-          <ArrowUp size={20} />
+          <PixelIcon name="arrowUp" size={24} />
         </motion.button>
       )}
     </AnimatePresence>

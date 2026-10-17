@@ -1,64 +1,45 @@
 import React, { memo } from 'react';
 import { cn } from '@/lib/utils';
 import { TechBadge } from '@/components/ui/TechBadge';
+import AnimatedContainer from '@/components/ui/AnimatedContainer';
 
-export const ExperienceCard = memo(({ experience, isLast }) => {
+/**
+ * One timeline entry: yellow node on the rail plus a navy card.
+ * `compact` clamps the description and hides the tech stack (Home preview).
+ */
+export const ExperienceCard = memo(({ experience, compact = false, delay = 0 }) => {
   const { company, role, period, description, techStack, type } = experience;
 
   return (
-    <div className="relative pl-8 md:pl-0">
-      {/* Timeline connector (Mobile) */}
-      <div className={cn(
-        "absolute left-0 top-2 bottom-0 w-px bg-border-subtle md:hidden",
-        isLast && "bottom-auto h-full"
-      )} />
-      
-      {/* Timeline dot (Mobile) */}
-      <div className="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-accent-indigo md:hidden" />
-
-      <div className="md:grid md:grid-cols-[200px_1fr] md:gap-8 lg:gap-12 relative">
-        {/* Timeline connector (Desktop) */}
-        <div className={cn(
-          "hidden md:block absolute left-[200px] top-2 bottom-0 w-px bg-border-subtle -ml-px",
-          isLast && "bottom-auto h-full"
-        )} />
-        
-        {/* Timeline dot (Desktop) */}
-        <div className="hidden md:block absolute left-[200px] top-2 w-2 h-2 rounded-full bg-accent-indigo -ml-[4px]" />
-
-        {/* Left side: Period */}
-        <div className="md:text-right md:pr-8 md:pt-1 mb-2 md:mb-0">
-          <span className="text-text-muted text-sm font-mono block">{period}</span>
-        </div>
-        
-        {/* Right side: Content */}
-        <div className="md:pl-8 pb-10">
-          <div className="flex flex-wrap items-center gap-3 mb-1">
-            <h3 className="text-lg font-semibold text-text-primary">{role}</h3>
-            {type && (
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wider bg-bg-card text-text-secondary border border-border-subtle">
-                {type}
-              </span>
-            )}
+    <AnimatedContainer as="li" animation="fadeUp" delay={delay} className="relative pl-8">
+      <span className="absolute -left-[11px] top-5 w-5 h-5 bg-yellow border-2 border-shade" aria-hidden="true" />
+      <article className="bg-navy-surface border-2 border-shade shadow-px p-5">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="min-w-0">
+            <h3 className="font-pixel text-sm sm:text-base text-cream uppercase leading-snug">{role}</h3>
+            <p className="text-sm text-teal mt-1">
+              {company}
+              {type && <span className="text-muted"> · {type}</span>}
+            </p>
           </div>
-          <div className="text-accent-indigo text-sm font-medium mb-3">
-            {company}
-          </div>
-          
-          <p className="text-text-secondary text-sm mt-2 whitespace-pre-line leading-relaxed">
-            {description}
-          </p>
-          
-          {techStack && techStack.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mt-4">
-              {techStack.map(tech => (
-                <TechBadge key={tech} name={tech} size="sm" />
-              ))}
-            </div>
-          )}
+          <span className="font-pixel text-[11px] uppercase bg-orange text-ink border-2 border-shade px-2 py-1 leading-none shrink-0">
+            {period}
+          </span>
         </div>
-      </div>
-    </div>
+
+        <p className={cn('text-sm text-muted leading-relaxed mt-3 whitespace-pre-line', compact && 'line-clamp-3')}>
+          {description}
+        </p>
+
+        {!compact && techStack?.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-4">
+            {techStack.map((tech) => (
+              <TechBadge key={tech} name={tech} />
+            ))}
+          </div>
+        )}
+      </article>
+    </AnimatedContainer>
   );
 });
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
+/**
+ * Vertical timeline rail. Children are <TimelineItem>s (e.g. ExperienceCard).
+ */
 export default function Timeline({ children, className }) {
   return (
-    <div className={cn("relative space-y-0", className)}>
-      <div className="absolute left-[11px] top-0 bottom-0 w-px bg-border-subtle" />
-      <div className="relative z-10 flex flex-col space-y-6">
-        {children}
-      </div>
-    </div>
+    <ol className={cn('relative border-l-[3px] border-teal ml-2 space-y-8', className)}>
+      {children}
+    </ol>
   );
 }

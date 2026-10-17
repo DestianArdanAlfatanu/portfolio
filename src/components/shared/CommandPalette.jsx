@@ -1,27 +1,21 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Search,
-  ArrowRight,
-  Home,
-  Briefcase,
-  FolderOpen,
-  User,
-  Award,
-  Mail,
-  Github,
-  Linkedin,
-  FileText,
-  X,
-  Command,
-} from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getProjects } from '@/data/dataService';
+import PixelIcon from '@/components/ui/PixelIcon';
+import socialData from '@/data/social.json';
+
+const socialUrl = (platform) => socialData.find((s) => s.platform === platform)?.url;
+
+// Icons are pixelarticons names; LinkedIn has no pixel glyph, so it uses lucide.
+const LinkedinIcon = ({ className }) => <Linkedin size={16} className={className} aria-hidden="true" />;
+const renderIcon = (icon, className) =>
+  typeof icon === 'string' ? <PixelIcon name={icon} size={16} className={className} /> : icon({ className });
 
 /**
- * Command Palette — Ctrl+K / Cmd+K
- * Inspired by Linear, Raycast, and Vercel.
+ * Command Palette — Ctrl+K / Cmd+K, styled as a retro "run" dialog.
  * Provides quick navigation, project search, and external links.
  */
 export default function CommandPalette() {
@@ -66,21 +60,21 @@ export default function CommandPalette() {
   // Navigation items
   const navigationItems = useMemo(
     () => [
-      { id: 'home', label: 'Home', icon: Home, action: () => navigate('/') },
-      { id: 'projects', label: 'Projects', icon: FolderOpen, action: () => navigate('/projects') },
-      { id: 'about', label: 'About', icon: User, action: () => navigate('/about') },
-      { id: 'experience', label: 'Experience', icon: Briefcase, action: () => navigate('/experience') },
-      { id: 'certificates', label: 'Certificates', icon: Award, action: () => navigate('/certificates') },
-      { id: 'contact', label: 'Contact', icon: Mail, action: () => navigate('/contact') },
+      { id: 'home', label: 'Home', icon: 'home', action: () => navigate('/') },
+      { id: 'projects', label: 'Projects', icon: 'folder', action: () => navigate('/projects') },
+      { id: 'about', label: 'About', icon: 'user', action: () => navigate('/about') },
+      { id: 'experience', label: 'Experience', icon: 'briefcase', action: () => navigate('/experience') },
+      { id: 'certificates', label: 'Certificates', icon: 'file', action: () => navigate('/certificates') },
+      { id: 'contact', label: 'Contact', icon: 'mail', action: () => navigate('/contact') },
     ],
     [navigate]
   );
 
   const externalItems = useMemo(
     () => [
-      { id: 'github', label: 'Open GitHub', icon: Github, action: () => window.open('https://github.com/username', '_blank') },
-      { id: 'linkedin', label: 'Open LinkedIn', icon: Linkedin, action: () => window.open('https://linkedin.com/in/username', '_blank') },
-      { id: 'resume', label: 'Download Resume', icon: FileText, action: () => window.open('#', '_blank') },
+      { id: 'github', label: 'Open GitHub', icon: 'github', action: () => window.open(socialUrl('GitHub'), '_blank', 'noopener,noreferrer') },
+      { id: 'linkedin', label: 'Open LinkedIn', icon: LinkedinIcon, action: () => window.open(socialUrl('LinkedIn'), '_blank', 'noopener,noreferrer') },
+      { id: 'resume', label: 'Download Resume', icon: 'download', action: () => window.open('/cv.pdf', '_blank', 'noopener,noreferrer') },
     ],
     []
   );
@@ -111,7 +105,7 @@ export default function CommandPalette() {
         id: `project-${p.id}`,
         label: p.title,
         description: p.description,
-        icon: FolderOpen,
+        icon: 'folder',
         action: () => navigate(`/projects/${p.slug}`),
       }));
     if (filteredProjects.length > 0) {
@@ -186,82 +180,93 @@ export default function CommandPalette() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] bg-shade/70"
             onClick={() => setIsOpen(false)}
           />
 
           {/* Palette */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: -10 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="fixed top-[20%] left-1/2 -translate-x-1/2 z-[101] w-full max-w-lg"
+            className="fixed top-[15%] left-1/2 -translate-x-1/2 z-[101] w-full max-w-lg"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Command palette"
           >
-            <div className="mx-4 overflow-hidden rounded-xl border border-border-subtle bg-bg-card shadow-elevated">
-              {/* Search Input */}
-              <div className="flex items-center gap-3 border-b border-border-subtle px-4">
-                <Search className="h-4 w-4 shrink-0 text-text-muted" />
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Search pages, projects, links..."
-                  className="flex-1 bg-transparent py-3.5 text-sm text-text-primary placeholder:text-text-muted outline-none"
-                />
+            <div className="mx-4 bg-cream on-light border-2 border-shade shadow-px-lg">
+              {/* Title bar */}
+              <div className="flex items-center justify-between gap-3 px-2.5 h-8 bg-purple text-cream border-b-2 border-shade">
+                <span className="font-pixel text-xs uppercase">run.exe</span>
                 <button
+                  type="button"
                   onClick={() => setIsOpen(false)}
-                  className="shrink-0 rounded-md border border-border-subtle px-1.5 py-0.5 text-[10px] font-mono text-text-muted hover:text-text-secondary transition-colors"
+                  aria-label="Close command palette"
+                  className="w-5 h-5 flex items-center justify-center bg-cream text-ink border-2 border-shade hover:bg-yellow"
                 >
-                  ESC
+                  <PixelIcon name="close" size={12} />
                 </button>
+              </div>
+
+              {/* Search Input */}
+              <div className="p-3 border-b-2 border-ink/20">
+                <div className="relative">
+                  <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-ink">
+                    <PixelIcon name="search" size={18} />
+                  </span>
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Search pages, projects, links..."
+                    aria-label="Search pages, projects, links"
+                    className="block w-full h-10 bg-white border-2 border-ink shadow-[inset_2px_2px_0_0_rgba(20,17,46,0.25)] pl-10 pr-3 text-sm text-ink placeholder:text-ink/60 outline-none"
+                  />
+                </div>
               </div>
 
               {/* Results */}
               <div ref={listRef} className="max-h-[320px] overflow-y-auto p-2">
                 {filteredResults.length === 0 ? (
-                  <div className="px-3 py-8 text-center text-sm text-text-muted">
+                  <div className="px-3 py-8 text-center text-sm text-ink/75">
                     No results found for "{query}"
                   </div>
                 ) : (
                   filteredResults.map((group) => (
                     <div key={group.group} className="mb-1">
-                      <div className="px-3 py-1.5 text-[11px] font-medium uppercase tracking-wider text-text-muted">
+                      <div className="px-3 py-1.5 font-pixel text-[11px] uppercase text-ink/75">
                         {group.group}
                       </div>
                       {group.items.map((item) => {
                         flatIndex++;
                         const isActive = flatIndex === activeIndex;
-                        const Icon = item.icon;
                         const currentIndex = flatIndex;
 
                         return (
                           <button
                             key={item.id}
+                            type="button"
                             data-active={isActive}
                             onClick={() => handleSelect(item)}
                             onMouseEnter={() => setActiveIndex(currentIndex)}
                             className={cn(
-                              'flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm transition-colors',
-                              isActive
-                                ? 'bg-accent-indigo/10 text-text-primary'
-                                : 'text-text-secondary hover:text-text-primary'
+                              'flex w-full items-center gap-3 px-3 py-2.5 text-left text-sm text-ink border-2',
+                              isActive ? 'bg-teal border-shade' : 'border-transparent'
                             )}
                           >
-                            <Icon className="h-4 w-4 shrink-0 text-text-muted" />
+                            {renderIcon(item.icon, 'shrink-0')}
                             <div className="flex-1 min-w-0">
                               <span className="block truncate">{item.label}</span>
                               {item.description && (
-                                <span className="block truncate text-xs text-text-muted mt-0.5">
+                                <span className="block truncate text-xs text-ink/75 mt-0.5">
                                   {item.description}
                                 </span>
                               )}
                             </div>
-                            {isActive && (
-                              <ArrowRight className="h-3 w-3 shrink-0 text-text-muted" />
-                            )}
+                            {isActive && <PixelIcon name="arrowRight" size={14} className="shrink-0" />}
                           </button>
                         );
                       })}
@@ -271,17 +276,17 @@ export default function CommandPalette() {
               </div>
 
               {/* Footer hint */}
-              <div className="flex items-center gap-4 border-t border-border-subtle px-4 py-2.5 text-[11px] text-text-muted">
-                <span className="flex items-center gap-1">
-                  <kbd className="rounded border border-border-subtle bg-bg-primary px-1 py-0.5 font-mono text-[10px]">↑↓</kbd>
+              <div className="flex items-center gap-4 border-t-2 border-ink/20 bg-cream-dark px-4 py-2.5 font-pixel text-[11px] uppercase text-ink">
+                <span className="flex items-center gap-1.5">
+                  <kbd className="border-2 border-ink bg-cream px-1 font-mono text-[10px] leading-tight">↑↓</kbd>
                   Navigate
                 </span>
-                <span className="flex items-center gap-1">
-                  <kbd className="rounded border border-border-subtle bg-bg-primary px-1 py-0.5 font-mono text-[10px]">↵</kbd>
+                <span className="flex items-center gap-1.5">
+                  <kbd className="border-2 border-ink bg-cream px-1 font-mono text-[10px] leading-tight">↵</kbd>
                   Select
                 </span>
-                <span className="flex items-center gap-1">
-                  <kbd className="rounded border border-border-subtle bg-bg-primary px-1 py-0.5 font-mono text-[10px]">esc</kbd>
+                <span className="flex items-center gap-1.5">
+                  <kbd className="border-2 border-ink bg-cream px-1 font-mono text-[10px] leading-tight">esc</kbd>
                   Close
                 </span>
               </div>

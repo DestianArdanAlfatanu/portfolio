@@ -7,7 +7,8 @@
       { "name": "JavaScript", "level": "Advanced" },
       { "name": "Tailwind CSS", "level": "Advanced" },
       { "name": "HTML/CSS", "level": "Advanced" },
-      { "name": "Next.js", "level": "Intermediate" }
+      { "name": "Next.js", "level": "Intermediate" },
+      { "name": "Vite", "level": "Advanced" }
     ]
   },
   {
@@ -16,17 +17,26 @@
       { "name": "Laravel", "level": "Intermediate" },
       { "name": "Node.js", "level": "Beginner" },
       { "name": "PostgreSQL", "level": "Intermediate" },
-      { "name": "MySQL", "level": "Intermediate" }
+      { "name": "MySQL", "level": "Intermediate" },
+      { "name": "Python", "level": "Beginner" },
+      { "name": "PHP", "level": "Intermediate" },
+      { "name": "REST APIs", "level": "Intermediate" },
+      { "name": "FastAPI", "level": "Beginner" },
+      { "name": "NestJS", "level": "Intermediate" }
     ]
   },
   {
     "category": "Tools & Others",
     "items": [
-      { "name": "Git", "level": "Advanced" },
-      { "name": "Vite", "level": "Advanced" },
+      { "name": "GitHub", "level": "Advanced" },
       { "name": "Figma", "level": "Intermediate" },
       { "name": "VS Code", "level": "Advanced" },
-      { "name": "Vercel", "level": "Advanced" }
+      { "name": "Vercel", "level": "Advanced" },
+      { "name": "JWT Authentication", "level": "Beginner" },
+      { "name": "Role-Based Access Control (RBAC)", "level": "Beginner" },
+      { "name": "API Integration", "level": "Intermediate" },
+      { "name": "Postman", "level": "Beginner" },
+      { "name": "Git", "level": "Advanced" }
     ]
   }
 ]

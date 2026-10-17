@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import Hero from '@/components/sections/Hero';
-import QuickStats from '@/components/sections/QuickStats';
-import CurrentTech from '@/components/sections/CurrentTech';
+import HelloBand from '@/components/sections/HelloBand';
 import FeaturedProjects from '@/components/sections/FeaturedProjects';
 import Skills from '@/components/sections/Skills';
 import ExperiencePreview from '@/components/sections/ExperiencePreview';
@@ -17,10 +16,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <QuickStats />
-      <CurrentTech />
-      <FeaturedProjects />
+      <HelloBand />
       <Skills />
+      <FeaturedProjects />
       <ExperiencePreview />
       <AboutPreview />
       <CertificatesPreview />

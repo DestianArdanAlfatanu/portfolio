@@ -512,5 +512,232 @@
     "status": "Completed",
     "featured": false,
     "relatedProjects": [6, 5]
+  },
+  {
+    "id": 8,
+    "slug": "sistem-lpk",
+    "title": "LPK Training & Job Placement Management System",
+    "organization": "Techworksnesia",
+    "type": "Client Project",
+    "teamSize": 1,
+    "duration": "1 Month",
+    "year": 2026,
+    "role": "Full-stack Developer",
+    "description": "Integrated operations platform for a Japan job-placement training institute (LPK), covering the full journey from student registration to departure, with a staff back office, a separate student portal, role-based access, and a full audit trail.",
+    "longDescription": "Sistem Digital LPK is a centralized web application built for a Lembaga Pelatihan Kerja (LPK) that trains and places workers in Japan. It replaces scattered spreadsheets and paper processes with one system that follows each student from registration, selection, and training through payments, job matching, interviews, document processing, and departure.\n\nThe staff application covers student data and status pipelines, classes and attendance, grades and exams, installment payments with automatic receipts, cash accounts and reconciliation, expense approvals, HR and payroll, job orders with candidate matching, document verification, departure readiness, reports, notifications, and global search. A separate Student Portal lets students view their schedule, attendance, grades, bills, and departure progress, and upload their own documents for staff verification.\n\nThe system is built as a React single-page application backed by a FastAPI REST API organized into 12 domain routers. Data is stored in PostgreSQL through a custom adapter that keeps each collection as a JSONB table with unique and partial indexes, so business rules such as one payroll per employee per period or one cash transaction per payment are enforced by the database itself. Uploaded documents are kept on persistent server storage with metadata in PostgreSQL, and the backend is covered by an automated pytest API test suite.",
+    "problem": "The institute managed students, payments, documents, staff, and job placements across disconnected manual records, making it hard to track each student's progress to Japan, prevent duplicate or unapproved financial entries, verify required documents, and know who changed what.",
+    "solution": "Designed and developed an integrated platform with a staff back office and a self-service student portal, backed by a modular FastAPI API with JWT authentication and role-based access control for 7 roles, idempotent payment and payroll workflows, a document verification flow, derived departure readiness checks, and an audit trail that records before/after data and reasons for every critical change.",
+    "responsibilities": [
+      "Requirements Analysis and System Architecture",
+      "REST API Development with FastAPI (12 Domain Routers)",
+      "PostgreSQL Data Modeling, Indexing, and JSONB Adapter",
+      "Frontend Development with React and Tailwind CSS",
+      "Authentication, JWT Sessions, and Role-based Access Control",
+      "Document Upload, Storage, and Verification Workflow",
+      "Automated API Testing with Pytest",
+      "Server Deployment and Maintenance"
+    ],
+    "features": [
+      "Student lifecycle pipeline from registration to departure with status history",
+      "Classes, mobile-friendly attendance, grades, and exams with automatic averages",
+      "Installment payments with automatic receipts and arrears tracking",
+      "Cash accounts, reconciliation, and tiered expense approval",
+      "HR, leave management, and payroll with frozen snapshots and owner approval",
+      "Job orders with candidate matching and interview-driven status updates",
+      "13-type document checklist with upload, verification, and expiry warnings",
+      "Departure readiness checks for passport, COE, visa, medical, ticket, and contract",
+      "Separate Student Portal for schedules, grades, bills, documents, and departure progress",
+      "Dashboard, reports with CSV/XLSX/PDF export, notifications, global search, and audit trail"
+    ],
+    "challenges": [
+      "Preventing duplicate payments, payroll slips, and cash transactions caused by double clicks or network retries, solved with idempotency keys and partial unique indexes that return the existing record instead of creating a new one.",
+      "Enforcing authorization on the backend for 7 staff roles plus students, so hidden buttons in the UI never leave an API endpoint open and students can only ever access their own records.",
+      "Keeping historical records trustworthy by freezing payroll snapshots, locking status transitions, and requiring a reason for every correction recorded in the audit trail."
+    ],
+    "lessonsLearned": [
+      "Deepened understanding of designing business systems around real operational workflows and segregation of duties.",
+      "Learned to enforce data integrity at the database level with unique and partial indexes instead of relying on application checks alone.",
+      "Strengthened backend security practices including JWT session handling, rate limiting, role-based authorization, and safe file storage.",
+      "Gained experience building and maintaining a large automated API test suite to keep a fast-moving codebase stable."
+    ],
+    "techStack": [
+      "React",
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "JWT",
+      "Pytest"
+    ],
+    "thumbnail": "/lpk.png",
+    "screenshots": [
+      {
+        "title": "Admin Dashboard",
+        "image": "/lpk1.png"
+      },
+      {
+        "title": "Kelas dan Absensi",
+        "image": "/lpk2.png"
+      },
+      {
+        "title": "Login Page",
+        "image": "/lpk3.png"
+      }
+    ],
+    "github": [
+      {
+        "label": "View Repository",
+        "url": "https://github.com/DestianArdanAlfatanu/sistem-lpk"
+      }
+    ],
+    "liveDemo": "https://lpk.techworksnesia.com/",
+    "category": ["Web Application"],
+    "status": "In Progress",
+    "featured": true,
+    "relatedProjects": [1, 2]
+  },
+  {
+    "id": 9,
+    "slug": "workstracker",
+    "title": "WorksTracker — Job Application Tracker SaaS",
+    "organization": "Techworksnesia",
+    "type": "Team Project",
+    "teamSize": 1,
+    "duration": "1 Month",
+    "year": 2026,
+    "role": "Full-stack Developer",
+    "description": "Web app for job seekers to record and monitor every job application, with a Kanban board, insights, reminders, a Chrome extension, an installable PWA, AI-assisted cover letters and CV checks, and paid lifetime plans with automated Midtrans payments.",
+    "longDescription": "WorksTracker is a job application tracker built as a sellable product. Job seekers log every application in one place, move it through a status pipeline, and see which channels actually lead to interviews, instead of losing track of applications across spreadsheets, chats, and job portals.\n\nUsers manage applications in a table or a drag-and-drop Kanban board with bulk actions, import from Excel, CSV, or Google Sheets with automatic column matching and duplicate detection, and export back to Excel or CSV. Higher plans add tasks, an activity calendar, weekly targets, an Insight page with an application funnel and response rate per channel, shareable progress cards, up to five stored CVs, daily email and push reminders, a Chrome extension that saves job posts from LinkedIn and other portals in one click, and an AI Career Assistant powered by Google Gemini for cover letters, interview preparation, ATS-style CV checks, and auto-filling the application form from a job poster image.\n\nThe project is a TypeScript monorepo: an Express REST API with Prisma and MySQL, a React and Vite web app delivered as a PWA with offline reading and Android Share Target, a Manifest V3 browser extension, and a shared package of Zod schemas and plan rules used by every app. Features are gated per plan on both the API and the UI, payments run through Midtrans Snap with verified webhooks, and the codebase is covered by Vitest and Supertest API tests plus Playwright end-to-end tests on desktop and mobile viewports.",
+    "problem": "Job seekers often apply to dozens of positions across different portals and lose track of where they applied, which CV they sent, when to follow up, and which channels actually respond, making the job search disorganized and hard to improve.",
+    "solution": "Built a full-stack SaaS that centralizes every application with status history, reminders, and insights, adds tools that cut manual work such as spreadsheet import, a one-click browser extension, and AI-assisted writing, and monetizes it through tiered lifetime plans with automated online payments and an admin console for managing buyers.",
+    "responsibilities": [
+      "Product Planning, PRD, and Pricing Model Design",
+      "REST API Development with Express, TypeScript, and Prisma",
+      "MySQL Database Design and Migrations",
+      "Frontend Development with React, Vite, and Tailwind CSS",
+      "PWA, Push Notifications, and Chrome Extension Development",
+      "Google Gemini AI Integration and Credit-based Usage Billing",
+      "Midtrans Payment Integration and Plan-based Feature Gating",
+      "Automated Testing with Vitest, Supertest, and Playwright"
+    ],
+    "features": [
+      "Application table and drag-and-drop Kanban board with status history and bulk actions",
+      "Import from Excel, CSV, or Google Sheets with column matching, preview, and undo",
+      "Insight dashboard with funnel, response rate per channel, and shareable progress cards",
+      "Tasks, activity calendar, weekly targets, and daily email and push reminders",
+      "CV library with per-application CV selection and text extraction for AI features",
+      "AI Career Assistant for cover letters, interview prep, CV checks, and poster-to-form auto-fill",
+      "Chrome extension to save job posts from LinkedIn, Instagram, and career sites in one click",
+      "Installable PWA with offline reading and Android Share Target",
+      "Three lifetime plans with automated Midtrans payments, upgrades, and AI credit top-ups",
+      "Admin console for buyers, plans, announcements, revenue, and integration checks"
+    ],
+    "challenges": [
+      "Keeping plan rules, pricing, and validation consistent across the API, web app, and browser extension, solved with a shared package of Zod schemas and a single plan definition that every workspace imports.",
+      "Making online payments reliable by verifying Midtrans webhook signatures, re-confirming status with the payment provider, fulfilling each order exactly once, and running a periodic job to catch missed notifications.",
+      "Controlling AI cost and privacy by charging credits only on successful generations, tracking cost per request, and sending the AI only the data a feature needs while excluding personal contact details."
+    ],
+    "lessonsLearned": [
+      "Learned to design and price a software product end to end, from PRD and feature tiers to payments and an admin back office.",
+      "Gained experience structuring a TypeScript monorepo with shared validation and business rules across multiple apps.",
+      "Strengthened security practices around short-lived JWT access tokens, rotating refresh tokens, rate limiting, and safe file uploads.",
+      "Improved testing discipline by combining API integration tests with Playwright end-to-end tests on desktop and mobile."
+    ],
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Express",
+      "Prisma",
+      "MySQL",
+      "Tailwind CSS",
+      "Gemini API",
+      "Midtrans",
+      "Playwright"
+    ],
+    "thumbnail": "/workstracker.png",
+    "screenshots": [],
+    "github": [
+      {
+        "label": "View Repository",
+        "url": "https://github.com/DestianArdanAlfatanu/workstracker"
+      }
+    ],
+    "liveDemo": null,
+    "category": ["Web Application"],
+    "status": "In Progress",
+    "featured": true,
+    "relatedProjects": [8, 1]
+  },
+  {
+    "id": 10,
+    "slug": "nginapyuk",
+    "title": "NginapYuk — Accommodation Booking Platform",
+    "organization": "Universitas Jenderal Soedirman",
+    "type": "Academic Project",
+    "teamSize": 3,
+    "duration": "3 Months",
+    "year": 2024,
+    "role": "Frontend Developer",
+    "description": "Team course project for an online accommodation booking platform where users browse listings, check date availability, book a stay, and track their transactions, built with a Next.js frontend on top of a Laravel REST API.",
+    "longDescription": "NginapYuk is an accommodation booking web application built as a three-person team project for a university course. It lets travelers create an account, browse available places to stay, open a listing to see its details, check whether it is available for their dates, and book it, then review all of their bookings in one place.\n\nThe system is split into a Next.js and TypeScript frontend and a Laravel backend that exposes a REST API for authentication, listings, availability checks, bookings, and transaction history, with a Filament admin panel for managing listing data. The API contract was shared across the team through a Postman collection.\n\nAs the frontend developer, I built the user-facing pages and connected them to the backend API. The team worked in a shared GitHub repository using separate branches per member and pull requests to merge changes into the main branch.",
+    "problem": "Travelers need a simple way to find a place to stay, confirm that it is available for their dates, and book it without back-and-forth communication, while the property data has to stay easy for administrators to manage.",
+    "solution": "Developed a booking platform with a Next.js frontend and a Laravel REST API that covers account registration and login, listing browsing and details, date availability checks before booking, and personal transaction history, with a Filament admin panel for listing management.",
+    "responsibilities": [
+      "Frontend Development with Next.js and TypeScript",
+      "Listing Browse and Listing Detail Pages",
+      "Availability Check and Booking Flow",
+      "Transaction History and Detail Pages",
+      "Authentication Pages and Session Handling",
+      "REST API Integration with the Laravel Backend",
+      "Team Collaboration with Git Branches and Pull Requests"
+    ],
+    "features": [
+      "User registration, login, logout, and profile session",
+      "Listing catalog with detail pages for each accommodation",
+      "Date availability check before booking",
+      "Booking transactions created directly from a listing",
+      "Personal transaction history with booking details",
+      "Filament admin panel for managing listing data"
+    ],
+    "challenges": [
+      "Keeping the frontend in sync with an API developed in parallel by teammates, solved by working against a shared Postman collection as the API contract.",
+      "Guiding users through a booking flow that checks availability first so that bookings are only submitted for dates that are still open.",
+      "Coordinating changes from three contributors in one repository through separate branches and pull requests."
+    ],
+    "lessonsLearned": [
+      "Gained hands-on experience building a Next.js and TypeScript frontend that consumes a separate REST API.",
+      "Learned to collaborate in a team Git workflow with branches, pull requests, and merges.",
+      "Understood how a decoupled frontend and backend architecture divides responsibilities within a team.",
+      "Improved skills in structuring user flows for transactional features such as booking."
+    ],
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Laravel",
+      "Filament",
+      "REST API"
+    ],
+    "thumbnail": "/nginap.jpeg",
+    "screenshots": [
+      {
+        "title": "Login Page",
+        "image": "/login.jpeg"
+      },
+      {
+        "title": "Benefit",
+        "image": "/yuk.jpeg"
+      }
+    ],
+    "github": [
+      {
+        "label": "View Repository",
+        "url": "https://github.com/DestianArdanAlfatanu/NginapYuk-Kelompok-9"
+      }
+    ],
+    "liveDemo": null,
+    "category": ["Web Application"],
+    "status": "Completed",
+    "featured": false,
+    "relatedProjects": [3, 5]
   }
 ]

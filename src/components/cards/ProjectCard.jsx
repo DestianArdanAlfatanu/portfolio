@@ -1,99 +1,86 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router';
-import { Github, ExternalLink } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import Button from '@/components/ui/Button';
+import PixelIcon from '@/components/ui/PixelIcon';
+import WindowFrame from '@/components/ui/WindowFrame';
+import ProjectThumbnail from '@/components/cards/ProjectThumbnail';
 import { TechBadge } from '@/components/ui/TechBadge';
 import { CategoryBadge } from '@/components/ui/CategoryBadge';
 
+const ArrowIcon = (props) => <PixelIcon name="arrowRight" size={16} {...props} />;
+
+const asList = (value) => (Array.isArray(value) ? value : value ? [value] : []);
+
+function IconLink({ href, label, icon }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${label} (opens in new tab)`}
+      title={label}
+      className="press flex items-center justify-center w-10 h-10 bg-cream text-ink border-2 border-ink shadow-px-sm hover:bg-yellow"
+    >
+      <PixelIcon name={icon} size={20} />
+    </a>
+  );
+}
+
+/**
+ * Project as an OS window titled `<slug>.html`: preview, meta, summary, tags, actions.
+ */
 export const ProjectCard = memo(({ project }) => {
-  const { id, slug, title, description, thumbnail, techStack, status, role, github, liveDemo, year } = project;
+  const { slug, title, description, techStack = [], type, year, github, liveDemo } = project;
+  const repo = github?.find((r) => r.url && r.url !== 'TODO');
+  const categories = asList(project.category);
 
   return (
-    <div className="group overflow-hidden rounded-xl bg-bg-card border border-border-subtle hover:shadow-card-hover transition-all duration-300 hover:-translate-y-[2px] flex flex-col h-full">
-      <Link to={`/projects/${slug}`} className="block relative aspect-video bg-bg-card-hover overflow-hidden shrink-0">
-        {thumbnail ? (
-          <img 
-            src={thumbnail} 
-            alt={title} 
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            loading="lazy"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-4xl font-bold text-text-muted transition-transform duration-500 group-hover:scale-[1.03]">
-            {title?.charAt(0)}
-          </div>
-        )}
+    <WindowFrame title={`${slug}.html`} className="h-full flex flex-col" bodyClassName="flex-1 flex flex-col">
+      <Link to={`/projects/${slug}`} className="group block aspect-video bg-navy border-b-2 border-shade overflow-hidden shrink-0" tabIndex={-1} aria-hidden="true">
+        <ProjectThumbnail project={project} className="transition-transform duration-300 group-hover:scale-105" />
       </Link>
-      
-      <div className="p-5 space-y-3 flex flex-col flex-grow">
-        <div className="flex items-center justify-between">
-          <span className="text-text-muted text-sm font-mono">{year}</span>
-          {status && (
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wider bg-bg-primary text-text-secondary border border-border-subtle">
-              {status}
-            </span>
-          )}
-        </div>
 
-        {project.category && (Array.isArray(project.category) ? project.category : [project.category]).length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
-            {(Array.isArray(project.category) ? project.category : [project.category]).map(cat => (
-              <CategoryBadge key={cat} name={cat} variant="outline" size="sm" />
-            ))}
-          </div>
-        )}
-        
-        <Link to={`/projects/${slug}`} className="block">
-          <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent-indigo transition-colors line-clamp-1">
-            {title}
-          </h3>
-        </Link>
-        
-        <p className="text-text-secondary text-sm line-clamp-2 flex-grow">
-          {description}
+      <div className="p-5 flex-1 flex flex-col">
+        <p className="font-pixel text-[11px] text-ink/75 uppercase">
+          {year}{type && ` · ${type}`}
         </p>
-        
-        {techStack && techStack.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 pt-2">
-            {techStack.slice(0, 4).map(tech => (
-              <TechBadge key={tech} name={tech} variant="outline" size="sm" />
+
+        <h3 className="font-pixel text-sm text-ink uppercase leading-snug mt-2">
+          <Link to={`/projects/${slug}`} className="hover:underline underline-offset-4">
+            {title}
+          </Link>
+        </h3>
+
+        <p className="text-sm text-ink leading-relaxed mt-2 line-clamp-3">{description}</p>
+
+        {categories.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-4">
+            {categories.map((cat) => (
+              <CategoryBadge key={cat} name={cat} />
             ))}
-            {techStack.length > 4 && (
-              <TechBadge name={`+${techStack.length - 4}`} variant="outline" size="sm" />
-            )}
           </div>
         )}
-        
-        <div className="flex items-center justify-between pt-3 mt-auto border-t border-border-subtle/50">
-          <span className="text-text-muted text-sm">{role}</span>
+
+        {techStack.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-3">
+            {techStack.slice(0, 4).map((tech) => (
+              <TechBadge key={tech} name={tech} tone="light" />
+            ))}
+            {techStack.length > 4 && <TechBadge name={`+${techStack.length - 4}`} tone="light" />}
+          </div>
+        )}
+
+        <div className="flex items-center justify-between gap-3 mt-auto pt-5">
+          <Button variant="dark" size="sm" href={`/projects/${slug}`} icon={ArrowIcon} iconPosition="right" aria-label={`View details: ${title}`}>
+            Details
+          </Button>
           <div className="flex items-center gap-2">
-            {github && github.length > 0 && github[0]?.url && github[0].url !== 'TODO' && (
-              <a 
-                href={github[0].url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-md text-text-muted hover:text-text-primary hover:bg-bg-primary transition-colors"
-                aria-label="GitHub Repository"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Github className="w-4 h-4" />
-              </a>
-            )}
-            {liveDemo && (
-              <a 
-                href={liveDemo} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-md text-text-muted hover:text-accent-cyan hover:bg-bg-primary transition-colors"
-                aria-label="Live Demo"
-              >
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            )}
+            {repo && <IconLink href={repo.url} label="GitHub repository" icon="github" />}
+            {liveDemo && <IconLink href={liveDemo} label="Live website" icon="externalLink" />}
           </div>
         </div>
       </div>
-    </div>
+    </WindowFrame>
   );
 });
 

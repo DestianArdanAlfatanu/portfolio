@@ -1,43 +1,48 @@
 import React, { memo } from 'react';
-import { Award, ExternalLink } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import PixelIcon from '@/components/ui/PixelIcon';
+import WindowFrame from '@/components/ui/WindowFrame';
+import { formatDate } from '@/lib/utils';
 
+// Window title: the certificate title as a kebab-case .pdf file name.
+const toFileName = (title) =>
+  `${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.pdf`;
+
+/**
+ * Certificate as a small OS window: issuer logo, title, issuer, note, date, credential link.
+ */
 export const CertificateCard = memo(({ certificate }) => {
-  const { title, issuer, date, credentialUrl, image } = certificate;
+  const { title, issuer, date, credentialUrl, image, description } = certificate;
 
   return (
-    <div className="bg-bg-card border border-border-subtle rounded-xl p-5 hover:bg-bg-card-hover transition-all duration-200 flex items-start gap-4 h-full">
-      <div className="shrink-0 w-12 h-12 rounded-lg bg-bg-primary border border-border-subtle flex items-center justify-center overflow-hidden">
+    <WindowFrame title={toFileName(title)} className="h-full flex flex-col" bodyClassName="flex-1 flex flex-col">
+      <div className="h-32 flex items-center justify-center bg-white border-b-2 border-shade p-4">
         {image ? (
-          <img src={image} alt={issuer} className="w-full h-full object-cover" loading="lazy" />
+          <img src={image} alt={issuer} loading="lazy" className="max-h-full max-w-full w-auto object-contain" />
         ) : (
-          <Award className="w-6 h-6 text-accent-indigo" />
+          <PixelIcon name="file" size={48} className="text-purple" />
         )}
       </div>
-      
-      <div className="flex flex-col flex-grow h-full justify-between gap-2">
-        <div>
-          <h3 className="font-semibold text-text-primary leading-tight mb-1">{title}</h3>
-          <p className="text-sm text-text-secondary">{issuer}</p>
-        </div>
-        
-        <div className="flex items-center justify-between mt-2">
-          <span className="text-sm text-text-muted font-mono">{date}</span>
-          
+      <div className="p-5 flex-1 flex flex-col">
+        <h3 className="font-semibold text-ink leading-snug">{title}</h3>
+        <p className="text-sm text-ink/75 mt-1">{issuer}</p>
+        {description && <p className="text-sm text-ink mt-2">{description}</p>}
+        <div className="flex items-center justify-between gap-3 mt-auto pt-5">
+          <span className="font-pixel text-[11px] text-ink uppercase">{formatDate(date)}</span>
           {credentialUrl && (
-            <a 
+            <a
               href={credentialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-medium text-accent-indigo hover:text-accent-indigo-hover transition-colors"
+              className="inline-flex items-center gap-1.5 font-pixel text-[11px] uppercase text-ink border-b-2 border-ink hover:text-purple hover:border-purple"
             >
-              View Credential
-              <ExternalLink className="w-3 h-3" />
+              View credential
+              <PixelIcon name="externalLink" size={14} />
+              <span className="sr-only">(opens in new tab)</span>
             </a>
           )}
         </div>
       </div>
-    </div>
+    </WindowFrame>
   );
 });
 

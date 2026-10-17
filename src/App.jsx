@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
+import { MotionConfig } from 'framer-motion';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BackToTop from '@/components/layout/BackToTop';
@@ -23,8 +24,8 @@ function PageLoader() {
   return (
     <div className="flex items-center justify-center min-h-[60vh]">
       <div className="flex flex-col items-center gap-4">
-        <div className="w-8 h-8 border-2 border-border-subtle border-t-accent-indigo rounded-full animate-spin" />
-        <p className="text-text-muted text-sm">Loading...</p>
+        <div className="w-8 h-8 border-[3px] border-navy-surface border-t-teal animate-spin" />
+        <p className="font-pixel text-xs text-muted uppercase">Loading...</p>
       </div>
     </div>
   );
@@ -36,28 +37,30 @@ function PageLoader() {
  */
 export default function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-bg-primary">
-        <Navbar />
-        <main className="flex-1 pt-16">
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/:slug" element={<ProjectDetail />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/certificates" element={<Certificates />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-        <BackToTop />
-        <CommandPalette />
-      </div>
-    </BrowserRouter>
+    <MotionConfig reducedMotion="user">
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen bg-navy">
+          <Navbar />
+          <main className="flex-1 pt-16">
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:slug" element={<ProjectDetail />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/certificates" element={<Certificates />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </main>
+          <Footer />
+          <BackToTop />
+          <CommandPalette />
+        </div>
+      </BrowserRouter>
+    </MotionConfig>
   );
 }
