@@ -21,8 +21,9 @@ function Sparkle({ className }) {
 }
 
 /**
- * Pixel-style CRT computer drawn with CSS. The screen shows public/destian.jpg,
- * falling back to a monogram until that file exists (or if it fails to load).
+ * Pixel-style CRT computer drawn with CSS. The screen shows a 160x120 dithered
+ * portrait (public/destian-pixel.png, generated from photos/destian.jpg) scaled
+ * up without smoothing, falling back to a monogram if it fails to load.
  */
 function RetroComputer() {
   const [hasError, setHasError] = useState(false);
@@ -44,9 +45,11 @@ function RetroComputer() {
               </div>
             ) : (
               <img
-                src="/destian.jpg"
-                alt="Photo of Destian Ardan Alfatanu"
-                className="w-full h-full object-cover"
+                src="/destian-pixel.png"
+                alt="Pixel-art portrait of Destian Ardan Alfatanu"
+                width={160}
+                height={120}
+                className="w-full h-full object-cover [image-rendering:pixelated]"
                 onError={() => setHasError(true)}
               />
             )}

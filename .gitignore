@@ -32,3 +32,5 @@ Thumbs.db
 
 # Misc
 *.log
+# Original photos (source for public/destian-pixel.png); not deployed
+photos/
