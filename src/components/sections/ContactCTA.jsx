@@ -20,7 +20,7 @@ export default function ContactCTA() {
               Let's build something together
             </h2>
             <p className="text-ink text-base mt-5 leading-relaxed">
-              I am actively seeking opportunities as a Front-End Developer or Full-Stack Developer, including full-time positions, internships, and freelance collaborations. If you are looking for someone passionate about building modern web applications and eager to contribute to your team, I would be happy to connect and discuss how I can add value to your organization.
+              I am open to Full-Stack Engineer roles in Jabodetabek or remote, as well as freelance collaborations. If you are looking for someone who can take a web application from database design to deployment, I would be happy to connect and discuss how I can add value to your team.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <Button variant="primary" size="lg" href="/contact" icon={MailIcon}>

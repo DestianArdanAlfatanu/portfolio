@@ -151,14 +151,14 @@
     "year": 2026,
     "role": "Full-stack Developer",
     "description": "Web-based expert system for diagnosing BMW E36 engine & undercarriage problems using the Certainty Factor method, processing user-reported symptoms to generate diagnostic results with calculated confidence levels.",
-    "longDescription": "Si Pak-E is a web-based expert system developed to help BMW E36 owners identify engine power loss and undercarriage problems without requiring extensive mechanical knowledge.\n\nThe system performs diagnosis by processing user-selected symptoms through the Certainty Factor inference method. Users provide their confidence level for each symptom they experience, and the system calculates the certainty of each possible diagnosis by combining individual symptom certainty values using the Certainty Factor combination formula. This approach was chosen because it effectively handles uncertainty in user-reported data while providing measurable confidence scores for each diagnosis result.\n\nThe application consists of a Next.js frontend and a PHP backend connected through REST APIs. It also provides an administrative dashboard for managing the knowledge base, symptoms, diagnostic rules, and user data, making the system maintainable and scalable.",
+    "longDescription": "Si Pak-E is a web-based expert system developed to help BMW E36 owners identify engine power loss and undercarriage problems without requiring extensive mechanical knowledge.\n\nThe system performs diagnosis by processing user-selected symptoms through the Certainty Factor inference method. Users provide their confidence level for each symptom they experience, and the system calculates the certainty of each possible diagnosis by combining individual symptom certainty values using the Certainty Factor combination formula. This approach was chosen because it effectively handles uncertainty in user-reported data while providing measurable confidence scores for each diagnosis result.\n\nThe application consists of a Next.js frontend and a NestJS backend connected through REST APIs. It also provides an administrative dashboard for managing the knowledge base, symptoms, diagnostic rules, and user data, making the system maintainable and scalable.",
     "problem": "BMW E36 owners often experience difficulties identifying the root cause of mechanical problems due to limited technical knowledge and the lack of accessible diagnostic tools that can process uncertain symptom information.",
     "solution": "Developed a rule-based expert system using the Certainty Factor method that processes user-reported symptoms with individual confidence levels, evaluates diagnostic rules from the knowledge base, and generates possible causes along with calculated certainty percentages and recommended solutions.",
     "responsibilities": [
       "System Analysis and Knowledge Base Design",
       "Certainty Factor Algorithm Implementation",
       "Frontend Development with Next.js and TypeScript",
-      "Backend REST API Development with PHP",
+      "Backend REST API Development with NestJS",
       "Database Design for Knowledge-based Systems",
       "Authentication and Authorization",
       "Admin Dashboard Development",
@@ -180,15 +180,15 @@
     ],
     "lessonsLearned": [
       "Strengthened understanding of expert system architecture, rule-based reasoning, and the Certainty Factor inference method.",
-      "Improved full-stack development skills using Next.js and PHP with REST API integration.",
+      "Improved full-stack development skills using Next.js and NestJS with REST API integration.",
       "Learned to design scalable relational database structures for knowledge-based systems.",
       "Enhanced experience integrating complex business logic between frontend and backend services."
     ],
     "techStack": [
       "Next.js",
       "TypeScript",
-      "PHP",
-      "MySQL",
+      "NestJS",
+      "PostgreSQL",
       "Tailwind CSS"
     ],
     "thumbnail": "/sipake.png",

@@ -2,34 +2,34 @@
   {
     "id": 1,
     "company": "DiikatJanji",
-    "role": "Front-end Developer",
-    "period": "Dec 2024 - Present",
+    "role": "Frontend Engineer (Freelance)",
+    "period": "Dec 2024 - Sep 2026",
     "description": "Developed and maintained the DiikatJanji digital wedding invitation platform, building responsive and interactive client-facing invitation websites featuring RSVP management, countdown timers, photo galleries, Google Maps integration, and background music players. Delivered production-ready invitation products for real clients while ensuring consistent cross-device user experiences and optimized page performance.",
-    "techStack": ["React", "JavaScript", "Tailwind CSS", "HTML", "CSS"],
+    "techStack": ["Next.js", "React", "Tailwind CSS", "Laravel", "MySQL"],
     "type": "Part-time"
   },
   {
     "id": 2,
     "company": "Smartani",
-    "role": "Front-end Developer",
+    "role": "Frontend Engineer (Freelance)",
     "period": "Jun 2025 - Feb 2026",
     "description": "Designed and developed a responsive landing page for the Smartani IoT agriculture platform, translating product requirements into a clean, component-based interface using React and Tailwind CSS. Implemented modular UI architecture with reusable components, smooth scroll navigation, and mobile-first responsive layouts to effectively communicate the platform's services and value proposition.",
-    "techStack": ["React", "JavaScript", "Tailwind CSS"],
+    "techStack": ["React", "Vite", "Tailwind CSS"],
     "type": "Part-time"
   },
   {
     "id": 3,
     "company": "PT. Telkom Indonesia",
-    "role": "Full Stack Web Developer (Intern)",
-    "period": "Aug 2025 - Jan 2026",
+    "role": "Software Engineer Intern",
+    "period": "Aug 2025 - Feb 2026",
     "description": "Developed and maintained an internal business application for the Project Resolution Management division used to centralize company information, streamline meeting room reservation processes, and support daily operational workflows across multiple departments. Independently designed the system architecture, implemented authentication and role-based access control, built the database schema, and deployed the application to production.",
-    "techStack": ["Next.js", "TypeScript", "PHP", "MySQL", "Tailwind CSS"],
+    "techStack": ["Next.js", "TypeScript", "MySQL", "Tailwind CSS"],
     "type": "Internship"
   },
   {
     "id": 4,
     "company": "PT. Kereta Api Indonesia (Persero)",
-    "role": "Full Stack Web Developer (Intern)",
+    "role": "Information System Intern",
     "period": "Jul 2024 - Aug 2024",
     "description": "Developed and maintained a web-based internship management system for DAOP V Purwokerto used to streamline internship participant administration, tracking registration through active internship periods to final report archival. Built the application using Laravel Filament and MySQL, covering database design, feature implementation, and system testing to improve data accessibility and reduce manual administrative workload.",
     "techStack": ["Laravel", "Filament", "PHP", "MySQL", "Tailwind CSS"],
@@ -38,18 +38,18 @@
   {
     "id": 5,
     "company": "Techworksnesia",
-    "role": "Co-Founder & Full Stack Engineer",
+    "role": "Co-Founder & Full-Stack Engineer",
     "period": "Sep 2026 - Present",
     "description": "Co-founded a software development agency focused on building custom B2B applications. Designed and developed end-to-end business systems, including a vocational training management platform with separate staff and student portals, REST APIs, role-based access control, automated WhatsApp notifications, and PostgreSQL-based data management.",
     "techStack": [
       "React",
-      "TypeScript",
       "FastAPI",
       "Python",
       "PostgreSQL",
       "REST API",
       "JWT",
-      "RBAC"
+      "RBAC",
+      "WhatsApp Cloud API"
     ],
     "type": "Remote"
   }

@@ -40,7 +40,7 @@ export default function Footer() {
             </p>
           </div>
           <p className="text-sm text-cream mt-4 leading-relaxed">
-            Destian Ardan Alfatanu — Full-Stack &amp; Front-End Web Developer.
+            Destian Ardan Alfatanu — Full-Stack Engineer.
           </p>
           {EMAIL && (
             <a

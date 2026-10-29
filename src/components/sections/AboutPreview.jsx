@@ -9,8 +9,8 @@ const ArrowIcon = (props) => <PixelIcon name="arrowRight" size={16} {...props} /
 
 export default function AboutPreview() {
   const facts = [
-    { label: 'Location', value: 'Central Java, Indonesia' },
-    { label: 'Focus', value: 'Full-Stack & Front-End Development' },
+    { label: 'Location', value: 'Banyumas & Depok · Open to Jabodetabek and remote' },
+    { label: 'Focus', value: 'Full-Stack Engineering' },
     { label: 'Education', value: 'B.S. Computer Science' },
     { label: 'Languages', value: 'Indonesian, English' },
   ];
@@ -21,10 +21,10 @@ export default function AboutPreview() {
         <AnimatedContainer animation="fadeUp">
           <RetroHeading overline="About Me" title="Building Scalable Web Applications" tone="light" />
           <p className="text-ink text-base mt-6 leading-relaxed">
-            I am a Fresh Graduate in Informatics from Jenderal Soedirman University specializing in Full-Stack and Front-End Web Development. I enjoy transforming business requirements into intuitive, responsive, and maintainable applications.
+            I am a Full-Stack Engineer and Computer Science graduate from Jenderal Soedirman University (GPA 3.79/4.00). I enjoy transforming business requirements into reliable, maintainable applications, from the database schema to the interface.
           </p>
           <p className="text-ink text-base mt-4 leading-relaxed">
-            Throughout my academic projects and professional internships at PT Telkom Indonesia and PT Kereta Api Indonesia, I have developed web applications ranging from internal management systems to digital platforms using React, Next.js, Laravel, TypeScript, and MySQL.
+            Today I co-run Techworksnesia, where I build business systems with React, FastAPI, and PostgreSQL. Before that, my internships at PT Telkom Indonesia and PT Kereta Api Indonesia delivered internal tools that replaced manual workflows, built with Next.js, Laravel, and MySQL.
           </p>
           <div className="mt-8">
             <Button variant="dark" href="/about" icon={ArrowIcon} iconPosition="right">

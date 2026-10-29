@@ -107,13 +107,11 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p variants={animations.fadeUp} className="font-pixel text-lg sm:text-xl text-cream uppercase leading-snug mt-6">
-            Full-Stack &amp; Front-End
-            <br />
-            Web Developer.
+            Full-Stack Engineer.
           </motion.p>
 
           <motion.p variants={animations.fadeUp} className="text-sm sm:text-base text-muted leading-relaxed mt-4 max-w-xl">
-            Fresh Graduate in Informatics specializing in Full-Stack and Front-End Web Development with hands-on experience building scalable web applications using React, Next.js, Laravel, TypeScript, and MySQL.
+            Computer Science graduate building web applications across React/Next.js frontends and FastAPI, Laravel, and NestJS backends. Currently co-founder and full-stack engineer at Techworksnesia, shipping a 161-endpoint FastAPI and PostgreSQL system with RBAC, JWT authentication, and audit trails.
           </motion.p>
 
           <motion.div variants={animations.fadeUp} className="flex flex-wrap gap-4 mt-8">
@@ -131,9 +129,9 @@ export default function Hero() {
                 <PixelIcon name="map" size={24} />
               </span>
               <p className="font-pixel text-xs text-teal uppercase leading-relaxed">
-                Based in Central Java, Indonesia.
+                Banyumas &amp; Depok, Indonesia.
                 <br />
-                Open to opportunities.
+                Open to Jabodetabek &amp; remote.
               </p>
             </div>
             <SocialLinks variant="boxed" />

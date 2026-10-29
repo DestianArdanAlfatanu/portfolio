@@ -6,9 +6,9 @@ import PixelIcon from '@/components/ui/PixelIcon';
 import AnimatedContainer from '@/components/ui/AnimatedContainer';
 
 const facts = [
-  { label: 'Location', lines: ['Purwokerto, Central Java, Indonesia', 'Depok, West Java, Indonesia'] },
-  { label: 'Focus', lines: ['Full-Stack & Front-End Development'] },
-  { label: 'Education', lines: ['Bachelor of Computer Science', 'Jenderal Soedirman University'] },
+  { label: 'Location', lines: ['Banyumas, Central Java', 'Depok, West Java', 'Open to Jabodetabek and remote'] },
+  { label: 'Focus', lines: ['Full-Stack Engineering', 'React, FastAPI, PostgreSQL'] },
+  { label: 'Education', lines: ['Bachelor of Computer Science', 'Jenderal Soedirman University', 'GPA 3.79 / 4.00'] },
   { label: 'Languages', lines: ['Indonesian (Native)', 'English (Professional Working Proficiency)'] },
 ];
 
@@ -35,7 +35,7 @@ const approach = [
 
 export default function About() {
   useEffect(() => {
-    document.title = 'About — Destian Ardan Alfatanu | Full-Stack & Front-End Developer';
+    document.title = 'About — Destian Ardan Alfatanu | Full-Stack Engineer';
   }, []);
 
   return (
@@ -46,16 +46,19 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 grid lg:grid-cols-[1.4fr_1fr] gap-12 items-start">
           <AnimatedContainer animation="fadeUp" className="space-y-5 text-ink text-base sm:text-lg leading-relaxed">
             <p>
-              I am a Fresh Graduate in Informatics from Jenderal Soedirman University with a strong interest in Full-Stack and Front-End Web Development.
+              I am a Full-Stack Engineer and Computer Science graduate from Jenderal Soedirman University, currently co-founder and full-stack engineer at Techworksnesia.
             </p>
             <p>
-              Throughout my academic journey and internships, I have developed web applications ranging from company profile websites, internal management systems, booking platforms, expert systems, and digital invitation platforms.
+              At Techworksnesia I built an operational management system for a vocational training center with React, FastAPI, and PostgreSQL: a 161-endpoint REST API with role-based access control, JWT authentication, audit trails, and idempotent payment processing.
+            </p>
+            <p>
+              Before that, I interned as a software engineer at PT Telkom Indonesia and as an information system intern at PT Kereta Api Indonesia, and freelanced on frontend work for Smartani and DiikatJanji. Along the way I have built internal management systems, booking platforms, an expert system, and digital invitation platforms.
             </p>
             <p>
               I enjoy transforming business requirements into intuitive, responsive, and maintainable applications while continuously improving my technical skills through real-world projects.
             </p>
             <p>
-              My primary focus is building scalable web applications using React, Next.js, Laravel, TypeScript, PHP, Tailwind CSS, and MySQL.
+              My main stack is React and Next.js on the frontend with FastAPI, Laravel, or NestJS on the backend, backed by PostgreSQL or MySQL.
             </p>
             <p>
               I believe good software is not only functional but also easy to maintain, accessible, and enjoyable to use.
@@ -64,6 +67,22 @@ export default function About() {
 
           <AnimatedContainer animation="fadeUp" delay={0.1} className="lg:sticky lg:top-24">
             <WindowFrame title="profile.txt" tone="navy" bodyClassName="px-5 py-2">
+              <div className="flex items-center gap-4 py-4 border-b-2 border-dashed border-navy-surface">
+                <div className="relative shrink-0 w-28 aspect-[4/3] bg-teal-dark border-2 border-shade shadow-px-sm overflow-hidden">
+                  <img
+                    src="/destian-pixel.png"
+                    alt="Pixel-art portrait of Destian Ardan Alfatanu"
+                    width={160}
+                    height={120}
+                    className="w-full h-full object-cover [image-rendering:pixelated]"
+                  />
+                  <span className="absolute inset-0 scanlines pointer-events-none" aria-hidden="true" />
+                </div>
+                <div className="min-w-0">
+                  <p className="font-pixel text-sm text-cream uppercase leading-snug">Destian Ardan Alfatanu</p>
+                  <p className="font-pixel text-xs text-teal uppercase mt-1">Full-Stack Engineer</p>
+                </div>
+              </div>
               <dl>
                 {facts.map((fact) => (
                   <div key={fact.label} className="py-3.5 border-b-2 border-dashed border-navy-surface last:border-0">

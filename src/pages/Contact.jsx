@@ -81,7 +81,7 @@ export default function Contact() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    document.title = 'Contact — Destian Ardan Alfatanu | Full-Stack & Front-End Developer';
+    document.title = 'Contact — Destian Ardan Alfatanu | Full-Stack Engineer';
   }, []);
 
   const handleCopyEmail = async () => {
@@ -95,7 +95,7 @@ export default function Contact() {
       <PageHeader
         overline="Currently Open to Opportunities"
         title="Let's Work Together"
-        description="I am actively seeking opportunities as a Front-End Developer or Full-Stack Developer. Feel free to reach out through any of the channels below."
+        description="I am open to Full-Stack Engineer roles in Jabodetabek or remote. Feel free to reach out through any of the channels below."
       />
 
       <section className="bg-orange border-b-2 border-shade">

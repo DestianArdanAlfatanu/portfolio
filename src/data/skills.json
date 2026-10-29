@@ -14,15 +14,15 @@
   {
     "category": "Backend",
     "items": [
-      { "name": "Laravel", "level": "Intermediate" },
-      { "name": "Node.js", "level": "Beginner" },
+      { "name": "FastAPI", "level": "Intermediate" },
       { "name": "PostgreSQL", "level": "Intermediate" },
-      { "name": "MySQL", "level": "Intermediate" },
-      { "name": "Python", "level": "Beginner" },
-      { "name": "PHP", "level": "Intermediate" },
+      { "name": "Python", "level": "Intermediate" },
       { "name": "REST APIs", "level": "Intermediate" },
-      { "name": "FastAPI", "level": "Beginner" },
-      { "name": "NestJS", "level": "Intermediate" }
+      { "name": "Laravel", "level": "Intermediate" },
+      { "name": "NestJS", "level": "Intermediate" },
+      { "name": "PHP", "level": "Intermediate" },
+      { "name": "MySQL", "level": "Intermediate" },
+      { "name": "Node.js", "level": "Beginner" }
     ]
   },
   {
@@ -32,8 +32,8 @@
       { "name": "Figma", "level": "Intermediate" },
       { "name": "VS Code", "level": "Advanced" },
       { "name": "Vercel", "level": "Advanced" },
-      { "name": "JWT Authentication", "level": "Beginner" },
-      { "name": "Role-Based Access Control (RBAC)", "level": "Beginner" },
+      { "name": "JWT Authentication", "level": "Intermediate" },
+      { "name": "Role-Based Access Control (RBAC)", "level": "Intermediate" },
       { "name": "API Integration", "level": "Intermediate" },
       { "name": "Postman", "level": "Beginner" },
       { "name": "Git", "level": "Advanced" }
